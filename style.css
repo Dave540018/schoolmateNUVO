@@ -344,7 +344,7 @@ svg {
 .demo-cta {
   position: absolute;
   left: 50%;
-  bottom: 22vh;
+  bottom: 28vh;
   z-index: 40;
   min-width: 224px;
   height: 52px;
@@ -1033,7 +1033,7 @@ svg {
   .demo-cta {
     min-width: 205px;
     height: 50px;
-    bottom: 17vh;
+    bottom: 22vh;
     font-size: 13px;
   }
 
@@ -8213,5 +8213,107 @@ svg {
     left: 50% !important;
     top: 24% !important;
     width: clamp(430px, 30vw, 510px) !important;
+  }
+}
+
+/* =========================================
+   MOBILE HERO FIX
+   1. Reduce huge background SchoolMate Nuvo text
+   2. Improve bottom white arc curve
+   3. Prevent phone image blur on iPhone/Safari
+   Paste at VERY BOTTOM of CSS
+========================================= */
+
+@media (max-width: 860px) {
+  .title-stage {
+    top: 21% !important;
+    width: 118vw !important;
+  }
+
+
+  .next-section {
+    margin-top: -92px !important;
+    padding-top: 86px !important;
+  }
+
+  .next-section::before {
+    top: -155px !important;
+    height: 170px !important;
+    width: 108% !important;
+    left: -4% !important;
+    clip-path: polygon(
+      0 50%,
+      8% 60%,
+      18% 70%,
+      30% 80%,
+      42% 88%,
+      50% 91%,
+      58% 88%,
+      70% 80%,
+      82% 70%,
+      92% 60%,
+      100% 50%,
+      100% 100%,
+      0 100%
+    ) !important;
+  }
+
+  .hero::after {
+    height: 190px !important;
+    filter: blur(8px) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .title-stage {
+    top: 24% !important;
+    width: 96vw !important;
+  }
+
+  .next-section {
+    margin-top: -86px !important;
+    padding-top: 82px !important;
+    padding: 0px;
+  }
+
+  .next-section::before {
+    top: -145px !important;
+    height: 160px !important;
+    clip-path: polygon(
+      0 52%,
+      8% 62%,
+      18% 72%,
+      30% 82%,
+      42% 90%,
+      50% 94%,
+      58% 90%,
+      70% 82%,
+      82% 72%,
+      92% 62%,
+      100% 52%,
+      100% 100%,
+      0 100%
+    ) !important;
+  }
+}
+
+/* iPhone/Safari blur fix while keeping the movement animation */
+@media (max-width: 860px) {
+  @keyframes risePhone {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(170px) rotate(-0.6deg) scale(0.96);
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.18));
+    }
+
+    65% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) rotate(-0.6deg) scale(1);
+      filter: drop-shadow(0 30px 44px rgba(0, 0, 0, 0.30));
+    }
   }
 }
