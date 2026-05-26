@@ -1,0 +1,8203 @@
+:root {
+  --deep: #090014;
+  --purple-900: #140024;
+  --purple-800: #250044;
+  --purple-700: #470079;
+  --purple-600: #6700a5;
+  --white: #ffffff;
+  --soft-white: rgba(255, 255, 255, 0.82);
+  --nav-height: 96px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Poppins, Montserrat, Arial, sans-serif;
+  color: var(--white);
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: max(1080px, 118vh);
+  isolation: isolate;
+  background: #090014;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("assets/Bg.png");
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 250px;
+  z-index: 18;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.18) 28%,
+      rgba(255, 255, 255, 0.58) 58%,
+      rgba(255, 255, 255, 0.92) 82%,
+      #ffffff 100%
+    );
+  filter: blur(12px);
+}
+
+.navbar {
+  position: relative;
+  z-index: 20;
+  height: var(--nav-height);
+  width: min(100% - 76px, 1640px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr 330px;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  width: 230px;
+}
+
+.brand img {
+  width: 100%;
+  filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.08));
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 2.35vw, 42px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.nav-links a,
+.nav-actions a {
+  transition: transform 0.28s ease, color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #140020;
+  font-weight: 800;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  white-space: nowrap;
+}
+
+.pill-btn.small {
+  min-height: 48px;
+  padding: 0 25px;
+  font-size: 15px;
+}
+
+.pill-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(255, 255, 255, 0.16);
+}
+
+.menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 19px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.title-stage {
+  position: absolute;
+  left: 50%;
+  top: 14.2%;
+  width: min(96vw, 1680px);
+  transform: translateX(-50%);
+  aspect-ratio: 1736 / 627;
+  height: auto;
+  pointer-events: auto;
+}
+
+.nuvo-word {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  pointer-events: none;
+  -webkit-mask-image: url("assets/SchoolMateText.png");
+  mask-image: url("assets/SchoolMateText.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center top;
+  mask-position: center top;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.nuvo-word.back-word {
+  transform: none;
+  background: rgba(255, 255, 255, 0.14);
+  opacity: 0.75;
+  mix-blend-mode: soft-light;
+  filter: none;
+  transition: opacity 1.4s ease, filter 1.4s ease;
+}
+
+.hover-word {
+  --reveal-size: clamp(260px, 22vw, 500px);
+  transform: none;
+  background-image:
+    radial-gradient(circle at var(--mx, 74%) var(--my, 47%), rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.28) 24%, rgba(255, 255, 255, 0) 48%),
+    url("assets/TextFillTexture.png");
+  background-size: 140% 140%, cover;
+  background-position: var(--mx, 74%) var(--my, 47%), center top;
+  opacity: 0;
+  clip-path: circle(0px at var(--mx, 74%) var(--my, 47%));
+  filter: saturate(1.06) brightness(0.95) contrast(1.02);
+  transition:
+    clip-path 1.55s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 1.2s ease,
+    filter 1.6s ease;
+  will-change: clip-path, opacity, filter, background-position;
+}
+
+.title-stage.intro-playing .back-word {
+  animation: backWordIntro 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.title-stage.intro-playing .hover-word {
+  opacity: 1;
+  clip-path: inset(0 100% 0 0);
+  filter: saturate(1.2) brightness(1.15) contrast(1.05);
+  animation: hoverWordIntro 2.45s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.title-stage.is-hovering .back-word,
+.title-stage.is-holding .back-word {
+  opacity: 0.28;
+  filter: blur(0.4px);
+}
+
+.title-stage.is-hovering .hover-word,
+.title-stage.is-holding .hover-word {
+  opacity: 1;
+  clip-path: circle(var(--reveal-size) at var(--mx, 74%) var(--my, 47%));
+  filter: saturate(1.25) brightness(1.18) contrast(1.06) drop-shadow(0 0 34px rgba(255, 255, 255, 0.2));
+  animation: textLightLife 4.8s ease-in-out both, textureDrift 8s ease-in-out infinite alternate;
+}
+
+.device {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.phone {
+  z-index: 10;
+  left: 50%;
+  top: 17.5%;
+  width: clamp(330px, 26vw, 510px);
+  transform: translateX(-50%) rotate(-0.6deg);
+  filter: drop-shadow(0 34px 50px rgba(0, 0, 0, 0.32));
+  animation:
+    risePhone 1.55s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both,
+    floatPhone 7s 2.15s ease-in-out infinite;
+}
+
+.laptop {
+  z-index: 8;
+  left: -3.5%;
+  bottom: 15%;
+  width: clamp(230px, 21vw, 410px);
+  transform: rotate(-1deg);
+  opacity: 0.72;
+  filter: blur(1.45px) drop-shadow(0 28px 42px rgba(0, 0, 0, 0.24));
+  animation:
+    riseLeft 1.65s 0.75s cubic-bezier(0.16, 1, 0.3, 1) both,
+    floatLeft 8s 2.4s ease-in-out infinite;
+}
+
+.box {
+  z-index: 6;
+  right: 8%;
+  bottom: 16.5%;
+  width: clamp(210px, calc(15vw + 35px), 520px);
+  opacity: 0.6;
+  filter: blur(0.55px) drop-shadow(0 28px 50px rgba(0, 0, 0, 0.35));
+  animation:
+    riseRight 1.75s 0.95s cubic-bezier(0.16, 1, 0.3, 1) both,
+    floatRight 8.5s 2.7s ease-in-out infinite;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: min(92vw, 680px);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-copy h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(42px, 7vw, 110px);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.eyebrow,
+.subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+.demo-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 22vh;
+  z-index: 40;
+  min-width: 224px;
+  height: 52px;
+  padding: 0 18px 0 25px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #160020;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.demo-cta svg {
+  width: 60px;
+  height: 20px;
+  overflow: visible;
+}
+
+.demo-cta path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.demo-cta:hover {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 28px 56px rgba(255, 255, 255, 0.14);
+}
+
+.demo-cta:hover svg {
+  animation: arrowMove 0.72s ease-in-out infinite alternate;
+}
+
+.scroll-indicator {
+  position: absolute;
+  right: 42px;
+  bottom: 9.8vh;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transform: rotate(90deg);
+  transform-origin: right center;
+}
+
+.scroll-indicator b {
+  position: relative;
+  width: 42px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+}
+
+.scroll-indicator b::after {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 0;
+  width: 18px;
+  height: 100%;
+  border-radius: inherit;
+  background: #fff;
+  animation: scrollLine 1.4s ease-in-out infinite;
+}
+
+.next-section {
+  position: relative;
+  z-index: 24;
+  min-height: 70vh;
+  display: grid;
+  place-items: start center;
+  margin-top: -145px;
+  padding: 92px 24px 90px;
+  color: #180023;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 -34px 72px rgba(255, 255, 255, 0.92);
+  overflow: visible;
+}
+
+.next-section::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  top: -210px;
+  width: 106%;
+  height: 210px;
+  background: #ffffff;
+  clip-path: polygon(
+    0 58%,
+    6% 64%,
+    13% 72%,
+    22% 82%,
+    33% 91%,
+    44% 97%,
+    50% 99%,
+    56% 97%,
+    67% 91%,
+    78% 82%,
+    87% 72%,
+    94% 64%,
+    100% 58%,
+    100% 100%,
+    0 100%
+  );
+  box-shadow:
+    0 -38px 90px rgba(255, 255, 255, 0.92),
+    0 -12px 45px rgba(255, 255, 255, 0.78);
+  pointer-events: none;
+}
+
+.next-section > div {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 94vw);
+}
+
+/* --- Stats Panel Refinement (Slimmer/Wider) --- */
+.stats-panel {
+  position: relative;
+  z-index: 25;
+  width: min(1400px, 95vw); /* Slightly tighter width for large screens */
+  margin: -40px auto 60px; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 45px rgba(20, 0, 36, 0.08);
+  border: 1px solid rgba(103, 0, 165, 0.1);
+}
+
+.stat-item {
+  padding: 15px 10px; /* Reduced padding for slim look */
+  text-align: center;
+  border-right: 1px solid rgba(103, 0, 165, 0.08);
+}
+
+/* --- Double Scrolling Logos --- */
+.trusted-schools {
+  width: 100%; /* Full screen width */
+  overflow: hidden;
+  padding: 40px 0;
+  background: #ffffff;
+}
+
+.logo-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px; /* Gap between the two rows */
+  position: relative;
+}
+
+.school-logo-track {
+  display: flex;
+  gap: 20px; /* Set to 20px as requested */
+  width: max-content;
+  animation: scrollLeft 60s linear infinite; /* Slower speed */
+}
+
+/* Reverse animation for the second row */
+.school-logo-track.reverse {
+  animation: scrollRight 60s linear infinite;
+}
+
+.school-logo-card {
+    flex: 0 0 162px;
+    height: 102px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    background: #f9f7ff;
+    border-radius: 8px;
+    border: 1px solid rgba(103, 0, 165, 0.05);
+}
+
+.school-logo-card img {
+  max-width: 85%;
+  max-height: 100px;
+  object-fit: contain;
+  /* Removed grayscale - now in full color */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+}
+
+/* Keyframes */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Pause on hover for better UX */
+.logo-wrapper:hover .school-logo-track {
+  animation-play-state: paused;
+}
+
+/* Mobile adjustments */
+@media (max-width: 860px) {
+  .stats-panel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-item:nth-child(2) { border-right: 0; }
+  .stat-item:nth-child(-n+2) { border-bottom: 1px solid rgba(103, 0, 165, 0.08); }
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .school-logo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+  }
+  .school-logo-card {
+    height: 110px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .school-logo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+  }
+  .school-logo-card {
+    height: 96px;
+    padding: 10px;
+  }
+}
+
+@keyframes statNumberPop {
+  0% {
+    transform: translateY(16px) scale(0.82);
+    filter: blur(5px);
+  }
+
+  55% {
+    transform: translateY(-6px) scale(1.13);
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes statGlowPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  38% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes logoCardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logosLeftToRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes logosRightToLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 9px 17px;
+  border-radius: 999px;
+  background: rgba(103, 0, 165, 0.1);
+  color: #6700a5;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.next-section h2 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.section-content p {
+  margin: 0 auto;
+  max-width: 620px;
+  color: rgba(24, 0, 35, 0.68);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+@keyframes floatPhone {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-0.6deg); }
+  50% { transform: translateX(-50%) translateY(-13px) rotate(-1.4deg); }
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(10px) rotate(-0.2deg); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.3deg); }
+}
+
+@keyframes textLightLife {
+  0% { filter: saturate(1.05) brightness(0.98) contrast(1.02); }
+  18% { filter: saturate(1.32) brightness(1.3) contrast(1.08) drop-shadow(0 0 44px rgba(255, 255, 255, 0.25)); }
+  58% { filter: saturate(1.24) brightness(1.17) contrast(1.06) drop-shadow(0 0 28px rgba(255, 255, 255, 0.18)); }
+  100% { filter: saturate(1.16) brightness(1.08) contrast(1.04) drop-shadow(0 0 16px rgba(255, 255, 255, 0.1)); }
+}
+
+@keyframes textureDrift {
+  0% { background-position: var(--mx, 74%) var(--my, 47%), 50% 48%; }
+  100% { background-position: var(--mx, 74%) var(--my, 47%), 62% 56%; }
+}
+
+@keyframes arrowMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(8px); }
+}
+
+@keyframes scrollLine {
+  0% { transform: translateX(0); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translateX(72px); opacity: 0; }
+}
+
+@keyframes risePhone {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(190px) rotate(-0.6deg) scale(0.96);
+    filter: blur(10px) drop-shadow(0 24px 35px rgba(0, 0, 0, 0.18));
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) rotate(-0.6deg) scale(1);
+    filter: drop-shadow(0 34px 50px rgba(0, 0, 0, 0.32));
+  }
+}
+
+@keyframes riseLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(170px) rotate(-1deg) scale(0.94);
+    filter: blur(10px) drop-shadow(0 18px 28px rgba(0, 0, 0, 0.12));
+  }
+
+  70% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: translateY(0) rotate(-1deg) scale(1);
+    filter: blur(1.45px) drop-shadow(0 28px 42px rgba(0, 0, 0, 0.24));
+  }
+}
+
+@keyframes riseRight {
+  0% {
+    opacity: 0;
+    transform: translateY(170px) rotate(0deg) scale(0.94);
+    filter: blur(9px) drop-shadow(0 18px 28px rgba(0, 0, 0, 0.12));
+  }
+
+  70% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: blur(0.55px) drop-shadow(0 28px 50px rgba(0, 0, 0, 0.35));
+  }
+}
+
+@keyframes backWordIntro {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    filter: blur(7px);
+  }
+
+  55% {
+    opacity: 0.52;
+    filter: blur(2px);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0.75;
+    filter: none;
+  }
+}
+
+@keyframes hoverWordIntro {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    filter: blur(6px) saturate(1) brightness(1);
+  }
+
+  35% {
+    opacity: 0.85;
+  }
+
+  75% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    filter: blur(0) saturate(1.25) brightness(1.22) contrast(1.05)
+      drop-shadow(0 0 38px rgba(255, 255, 255, 0.24));
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 0;
+    filter: blur(0) saturate(1.1) brightness(1.05);
+  }
+}
+
+@media (max-width: 1180px) {
+  .navbar {
+    width: min(100% - 42px, 1120px);
+    grid-template-columns: 210px auto 270px;
+    gap: 18px;
+  }
+
+  .brand {
+    width: 190px;
+  }
+
+  .nav-links {
+    gap: 18px;
+    font-size: 13px;
+  }
+
+  .pill-btn.small {
+    min-height: 44px;
+    padding: 0 19px;
+    font-size: 13px;
+  }
+
+  .phone {
+    width: clamp(330px, 39vw, 500px);
+    top: 15.8%;
+  }
+
+  .laptop {
+    left: -10%;
+    bottom: 16%;
+    width: clamp(260px, 31vw, 420px);
+  }
+
+  .box {
+    right: 2%;
+    bottom: 17%;
+    width: clamp(200px, 23vw, 310px);
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --nav-height: 82px;
+  }
+
+ .hero {
+    min-height: 820px;
+  }
+
+  .next-section {
+    margin-top: -128px;
+    padding-top: 78px;
+  }
+
+  .navbar {
+    width: min(100% - 28px, 760px);
+    grid-template-columns: 190px 1fr auto;
+  }
+
+  .brand {
+    width: 178px;
+  }
+
+  .menu-toggle {
+    display: block;
+    justify-self: end;
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .nav-links,
+  .nav-actions {
+    position: absolute;
+    right: 0;
+    top: calc(var(--nav-height) - 8px);
+    width: min(330px, calc(100vw - 28px));
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    background: rgba(14, 0, 28, 0.86);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+    display: none;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links a {
+    padding: 13px 10px;
+  }
+
+  .nav-actions {
+    top: calc(var(--nav-height) + 238px);
+    flex-direction: column;
+  }
+
+  body.menu-open .nav-links,
+  body.menu-open .nav-actions {
+    display: flex;
+  }
+
+  .title-stage {
+    top: 18%;
+    width: 138vw;
+  }
+
+  .phone {
+    top: 23%;
+    width: min(72vw, 430px);
+  }
+
+  .laptop {
+    left: -18%;
+    bottom: 18%;
+    width: min(49vw, 330px);
+    opacity: 0.58;
+  }
+
+  .box {
+    right: -8%;
+    bottom: 20%;
+    width: min(38vw, 250px);
+    opacity: 0.52;
+  }
+
+  .demo-cta {
+    bottom: 17vh;
+  }
+
+
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .trusted-schools {
+  width: min(760px, calc(100vw - 36px));
+  margin-top: 8px;
+}
+
+.trusted-schools::before,
+.trusted-schools::after {
+  width: 80px;
+}
+
+.school-logo-grid {
+  gap: 16px;
+  margin-bottom: 18px;
+  animation-duration: 32s;
+}
+
+.school-logo-grid.second-row {
+  animation-duration: 36s;
+}
+
+.school-logo-card {
+  width: 138px;
+  height: 78px;
+  padding: 10px 14px;
+}
+}
+
+@media (max-width: 520px) {
+ .hero {
+    min-height: 760px;
+  }
+
+  .next-section {
+    margin-top: -110px;
+    padding-top: 72px;
+  }
+
+  .hero::after {
+    bottom: -2px;
+    height: 170px;
+    width: 100%;
+    filter: blur(9px);
+  }
+
+  .navbar {
+    width: min(100% - 24px, 480px);
+  }
+
+  .brand {
+    width: 158px;
+  }
+
+  .title-stage {
+    top: 22%;
+    width: 172vw;
+  }
+
+  .phone {
+    top: 29%;
+    width: min(88vw, 370px);
+  }
+
+  .laptop {
+    left: -30%;
+    bottom: 18%;
+    width: min(58vw, 280px);
+  }
+
+  .box {
+    right: -24%;
+    bottom: 22%;
+    width: min(48vw, 220px);
+  }
+
+  .demo-cta {
+    min-width: 205px;
+    height: 50px;
+    bottom: 17vh;
+    font-size: 13px;
+  }
+
+  .stats-panel {
+    width: min(420px, calc(100vw - 28px));
+    grid-template-columns: 1fr;
+    margin-bottom: 48px;
+  }
+
+  .stat-item,
+  .stat-item:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(24, 0, 35, 0.18);
+  }
+
+  .stat-item:last-child {
+    border-bottom: 0;
+  }
+
+.trusted-schools {
+  width: min(440px, calc(100vw - 28px));
+  margin-top: 0;
+  margin-bottom: 56px;
+}
+
+.trusted-schools h3 {
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+.trusted-schools::before,
+.trusted-schools::after {
+  width: 52px;
+}
+
+.school-logo-grid {
+  gap: 12px;
+  margin-bottom: 14px;
+  animation-duration: 28s;
+}
+
+.school-logo-grid.second-row {
+  animation-duration: 31s;
+}
+
+.school-logo-card {
+  width: 116px;
+  height: 66px;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+}
+
+/* =========================================
+   FINAL FIX: Stats Panel + Logo Scroller
+   Paste this at the bottom of style.css
+========================================= */
+
+/* Stop generic next-section div width from shrinking stats */
+.next-section > .stats-panel {
+  width: min(1280px, calc(100vw - 150px));
+}
+
+/* Clean premium stats panel */
+.stats-panel {
+  position: relative;
+  z-index: 30;
+  min-height: 108px;
+  margin: -34px auto 78px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(103, 0, 165, 0.08);
+  box-shadow:
+    0 24px 60px rgba(24, 0, 35, 0.13),
+    0 8px 20px rgba(24, 0, 35, 0.06);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+}
+
+.stats-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(159, 40, 216, 0.04), rgba(255, 255, 255, 0), rgba(159, 40, 216, 0.04));
+  pointer-events: none;
+}
+
+.stat-item {
+  position: relative;
+  min-height: 108px;
+  display: grid;
+  place-items: center;
+  padding: 18px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(24, 0, 35, 0.16);
+}
+
+.stat-item:last-child {
+  border-right: 0;
+}
+
+.stat-item::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 0;
+  height: 3px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, transparent, rgba(171, 42, 222, 0.75), transparent);
+  opacity: 0.65;
+}
+
+.stat-item p {
+  margin: 0;
+}
+
+.stat-item strong,
+.count-number {
+  display: block;
+  min-width: auto;
+  font-size: clamp(36px, 3vw, 54px);
+  line-height: 0.95;
+  font-weight: 950;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #7613c9 0%, #bd31f2 45%, #8d12dc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.stat-item span {
+  display: block;
+  margin-top: 9px;
+  color: rgba(45, 8, 56, 0.78);
+  font-size: clamp(13px, 0.9vw, 16px);
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+
+
+
+/* Responsive fixes */
+@media (max-width: 860px) {
+  .next-section > .stats-panel {
+    width: min(680px, calc(100vw - 36px));
+  }
+
+  .stats-panel {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: auto;
+    margin: -20px auto 58px;
+  }
+
+  .stat-item {
+    min-height: 104px;
+  }
+
+  .stat-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat-item:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(24, 0, 35, 0.14);
+  }
+
+  .logo-wrapper::before,
+  .logo-wrapper::after {
+    width: 70px;
+  }
+
+  .school-logo-track {
+    gap: 30px;
+    animation-duration: 42s;
+  }
+
+  .school-logo-track.reverse {
+    animation-duration: 46s;
+  }
+
+  .school-logo-card {
+    flex-basis: 140px;
+    height: 86px;
+  }
+}
+
+@media (max-width: 520px) {
+  .next-section > .stats-panel {
+    width: min(420px, calc(100vw - 28px));
+  }
+
+  .stats-panel {
+    grid-template-columns: 1fr;
+    margin: -8px auto 48px;
+    border-radius: 16px;
+  }
+
+  .stat-item {
+    min-height: 96px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(24, 0, 35, 0.14);
+  }
+
+  .stat-item:last-child {
+    border-bottom: 0;
+  }
+
+  .stat-item strong,
+  .count-number {
+    font-size: 36px;
+  }
+
+  .trusted-schools h3 {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .logo-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .logo-wrapper::before,
+  .logo-wrapper::after {
+    width: 45px;
+  }
+
+  .school-logo-track {
+    gap: 24px;
+    animation-duration: 34s;
+  }
+
+  .school-logo-track.reverse {
+    animation-duration: 38s;
+  }
+
+  .school-logo-card {
+    flex-basis: 118px;
+    height: 72px;
+  }
+}
+
+
+/* =========================================
+   FINAL LOGO SCROLL: Bigger, tighter, smoother
+   Paste at the very bottom of style.css
+========================================= */
+
+.logo-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 6px;
+  background: transparent !important;
+  position: relative;
+}
+
+.logo-wrapper::before,
+.logo-wrapper::after {
+  width: 75px !important;
+}
+
+.school-logo-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(2px, 0.25vw, 7px) !important;
+  width: max-content;
+  background: transparent !important;
+  will-change: transform, opacity, filter;
+  opacity: 0;
+  animation: none !important;
+}
+
+.school-logo-track.reverse {
+  animation: none !important;
+}
+
+.school-logo-track.is-ready {
+  animation:
+    logoEnterLeftSmooth 1.35s cubic-bezier(0.16, 1, 0.3, 1) both,
+    scrollLeftTight 52s 1.35s linear infinite !important;
+}
+
+.school-logo-track.reverse.is-ready {
+  animation:
+    logoEnterRightSmooth 1.35s cubic-bezier(0.16, 1, 0.3, 1) both,
+    scrollRightTight 56s 1.35s linear infinite !important;
+}
+
+.school-logo-card {
+  flex: 0 0 clamp(185px, 12.5vw, 230px) !important;
+  height: clamp(108px, 7vw, 132px) !important;
+  padding: 0 2px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.school-logo-card img {
+  max-width: 99%;
+  max-height: 99%;
+  object-fit: contain;
+  filter: none !important;
+  transition: transform 0.35s ease;
+}
+
+.school-logo-card:hover img {
+  transform: scale(1.06);
+}
+
+/* First row: fast entry first, then smooth settle */
+@keyframes logoEnterLeftSmooth {
+  0% {
+    transform: translateX(-46%);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  42% {
+    transform: translateX(-8%);
+    opacity: 1;
+    filter: blur(1px);
+  }
+
+  70% {
+    transform: translateX(1.4%);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Second row: comes from the opposite side, then settles */
+@keyframes logoEnterRightSmooth {
+  0% {
+    transform: translateX(8%);
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  42% {
+    transform: translateX(-42%);
+    opacity: 1;
+    filter: blur(1px);
+  }
+
+  70% {
+    transform: translateX(-51.4%);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes scrollLeftTight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRightTight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .logo-wrapper {
+    margin-bottom: 4px;
+  }
+
+  .logo-wrapper::before,
+  .logo-wrapper::after {
+    width: 48px !important;
+  }
+
+  .school-logo-track {
+    gap: 3px !important;
+  }
+
+  .school-logo-track.is-ready {
+    animation:
+      logoEnterLeftSmooth 1.15s cubic-bezier(0.16, 1, 0.3, 1) both,
+      scrollLeftTight 38s 1.15s linear infinite !important;
+  }
+
+  .school-logo-track.reverse.is-ready {
+    animation:
+      logoEnterRightSmooth 1.15s cubic-bezier(0.16, 1, 0.3, 1) both,
+      scrollRightTight 42s 1.15s linear infinite !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 150px !important;
+    height: 88px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .logo-wrapper::before,
+  .logo-wrapper::after {
+    width: 34px !important;
+  }
+
+  .school-logo-track {
+    gap: 2px !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 124px !important;
+    height: 74px !important;
+  }
+}
+
+
+/* =========================================
+   PROFESSIONAL LOGO MARQUEE FINAL
+   Paste at the very bottom of style.css
+========================================= */
+
+.trusted-schools {
+  width: 100% !important;
+  margin: 0 auto 90px !important;
+  padding: 24px 0 48px !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.trusted-schools h3 {
+  margin: 0 0 28px !important;
+  color: #3a064a;
+  font-size: clamp(18px, 1.25vw, 23px);
+  font-weight: 950;
+  letter-spacing: 0.01em;
+}
+
+.logo-wrapper {
+  width: 100% !important;
+  overflow: hidden !important;
+  margin-bottom: 2px !important;
+  background: transparent !important;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.logo-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo-wrapper::before,
+.logo-wrapper::after {
+  display: none !important;
+}
+
+.school-logo-track {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: max-content !important;
+  background: transparent !important;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  animation: none !important;
+}
+
+.school-logo-track.is-ready {
+  animation: nuvoLogoMarqueeLeft var(--marquee-duration, 78s) linear infinite !important;
+}
+
+.school-logo-track.reverse.is-ready {
+  animation: nuvoLogoMarqueeRight var(--marquee-duration, 82s) linear infinite !important;
+}
+
+.logo-wrapper:hover .school-logo-track.is-ready {
+  animation-play-state: paused !important;
+}
+
+.school-logo-card {
+  flex: 0 0 clamp(225px, 14vw, 285px) !important;
+  height: clamp(128px, 8.2vw, 160px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 2px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.school-logo-card img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  filter: none !important;
+  transition: transform 0.35s ease;
+}
+
+.school-logo-card:hover img {
+  transform: scale(1.045);
+}
+
+@keyframes nuvoLogoMarqueeLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(var(--marquee-distance, 0px) * -1), 0, 0);
+  }
+}
+
+@keyframes nuvoLogoMarqueeRight {
+  from {
+    transform: translate3d(calc(var(--marquee-distance, 0px) * -1), 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 860px) {
+  .trusted-schools {
+    margin-bottom: 64px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .trusted-schools h3 {
+    margin-bottom: 22px !important;
+  }
+
+  .logo-wrapper {
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 9%,
+      #000 91%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 9%,
+      #000 91%,
+      transparent 100%
+    );
+  }
+
+  .school-logo-track {
+    gap: 3px !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 170px !important;
+    height: 98px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .school-logo-track {
+    gap: 2px !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 136px !important;
+    height: 78px !important;
+  }
+}
+
+/* =========================================
+   FIXED PROFESSIONAL LOGO MARQUEE
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.trusted-schools {
+  width: 100% !important;
+  margin: 0 auto 10px !important;
+  padding: 24px 0 0px !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.trusted-schools h3 {
+  margin: 0 0 28px !important;
+  color: #3a064a;
+  font-size: clamp(18px, 1.25vw, 23px);
+  font-weight: 950;
+  letter-spacing: 0.01em;
+}
+
+.logo-wrapper {
+  width: 100% !important;
+  overflow: hidden !important;
+  margin-bottom: 26px !important;
+  background: transparent !important;
+  position: relative;
+  opacity: 1 !important;
+  transform: none !important;
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.logo-wrapper::before,
+.logo-wrapper::after {
+  display: none !important;
+}
+
+.school-logo-track {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: max-content !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  animation: none !important;
+}
+
+.school-logo-track.is-ready {
+  animation: nuvoLogoMarqueeLeft var(--marquee-duration, 80s) linear infinite !important;
+}
+
+.school-logo-track.reverse.is-ready {
+  animation: nuvoLogoMarqueeRight var(--marquee-duration, 84s) linear infinite !important;
+}
+
+.logo-wrapper:hover .school-logo-track.is-ready {
+  animation-play-state: paused !important;
+}
+
+.school-logo-card {
+  flex: 0 0 clamp(225px, 14vw, 285px) !important;
+  height: clamp(128px, 8.2vw, 160px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 2px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.school-logo-card img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: transform 0.35s ease;
+}
+
+.school-logo-card:hover img {
+  transform: scale(1.045);
+}
+
+@keyframes nuvoLogoMarqueeLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(var(--marquee-distance, 0px) * -1), 0, 0);
+  }
+}
+
+@keyframes nuvoLogoMarqueeRight {
+  from {
+    transform: translate3d(calc(var(--marquee-distance, 0px) * -1), 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 860px) {
+  .school-logo-track {
+    gap: 3px !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 170px !important;
+    height: 98px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .school-logo-track {
+    gap: 2px !important;
+  }
+
+  .school-logo-card {
+    flex-basis: 136px !important;
+    height: 78px !important;
+  }
+}
+
+/* =========================================
+   FINAL GAP FIX: tighter logo spacing
+   Paste at the very bottom of style.css
+========================================= */
+
+.school-logo-track {
+  gap: 0 !important;
+}
+
+.school-logo-card {
+  flex: 0 0 clamp(150px, 10vw, 190px) !important;
+  height: clamp(92px, 6.4vw, 120px) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.school-logo-card img {
+  width: 96% !important;
+  height: 96% !important;
+  object-fit: contain !important;
+}
+
+/* Give naturally wide logos a little more space without affecting all logos */
+.school-logo-card:has(img[src*="school"]) {
+  overflow: visible;
+}
+
+@media (max-width: 860px) {
+  .school-logo-card {
+    flex-basis: 128px !important;
+    height: 78px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .school-logo-card {
+    flex-basis: 108px !important;
+    height: 66px !important;
+  }
+}
+
+/* =========================================
+   FPS PERFECT CURSOR OVERRIDE
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot,
+  .cursor-outline {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 99999;
+    will-change: transform, opacity, background-color, border-color;
+    transform: translate3d(-100px, -100px, 0);
+  }
+
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #2468ff;
+    box-shadow: 0 0 18px rgba(36, 104, 255, 0.35);
+    transition:
+      opacity 0.12s linear,
+      background-color 0.08s linear,
+      box-shadow 0.08s linear;
+  }
+
+  .cursor-outline {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1.3px solid rgba(36, 104, 255, 0.45);
+    background: rgba(36, 104, 255, 0.035);
+    backdrop-filter: blur(1.5px);
+    transition:
+      opacity 0.12s linear,
+      border-color 0.08s linear,
+      background-color 0.08s linear;
+  }
+
+  body.custom-cursor-ready .cursor-dot,
+  body.custom-cursor-ready .cursor-outline {
+    opacity: 1;
+  }
+
+  body.cursor-bg-white .cursor-dot {
+    background: #2468ff;
+    box-shadow: 0 0 18px rgba(36, 104, 255, 0.38);
+  }
+
+  body.cursor-bg-white .cursor-outline {
+    border-color: rgba(36, 104, 255, 0.52);
+    background: rgba(36, 104, 255, 0.045);
+  }
+
+  body.cursor-bg-color .cursor-dot {
+    background: #ffffff;
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.45);
+  }
+
+  body.cursor-bg-color .cursor-outline {
+    border-color: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  body.cursor-hidden .cursor-dot,
+  body.cursor-hidden .cursor-outline {
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   Faster SchoolMate Text Hover
+========================================= */
+
+.hover-word {
+  transition:
+    clip-path 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.16s linear,
+    filter 0.18s linear !important;
+}
+
+.title-stage.is-hovering .hover-word,
+.title-stage.is-holding .hover-word {
+  animation: textureDrift 5s ease-in-out infinite alternate !important;
+}
+
+.title-stage.is-hovering .back-word,
+.title-stage.is-holding .back-word {
+  transition: opacity 0.12s linear, filter 0.12s linear !important;
+}
+
+
+/* =========================================
+   SchoolMate Nuvo Bento Section
+========================================= */
+
+.nuvo-bento-section {
+  position: relative;
+  z-index: 2;
+  width: min(1320px, calc(100vw - 110px));
+  margin: 10px auto 120px;
+  
+}
+
+.nuvo-section-heading {
+  text-align: center;
+  margin-bottom: 58px;
+}
+
+.nuvo-section-heading span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #4b0b5d;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nuvo-section-heading h2 {
+  margin: 20px 0 0;
+  color: #40104f;
+  font-size: clamp(36px, 3.7vw, 64px);
+  line-height: 1.16;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.nuvo-bento-grid {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr 1fr;
+  grid-template-rows: clamp(340px, 31vw, 520px) clamp(210px, 16vw, 285px);
+  gap: 18px;
+}
+
+.nuvo-bento-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 220px;
+}
+
+.nuvo-bento-main {
+  background:
+    linear-gradient(90deg, rgba(142, 104, 235, 0.98) 0%, rgba(142, 104, 235, 0.88) 42%, rgba(142, 104, 235, 0.62) 100%),
+    url("assets/managementbg.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  box-shadow: 0 28px 70px rgba(80, 17, 121, 0.22);
+}
+
+.bento-slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(28px, 3.2vw, 58px);
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s ease;
+}
+
+.bento-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.bento-slide h3 {
+  margin: 0;
+  max-width: 760px;
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 86px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+}
+
+.bento-slide-panel {
+  position: absolute;
+  left: clamp(28px, 3.2vw, 58px);
+  right: clamp(28px, 9vw, 155px);
+  bottom: clamp(74px, 6vw, 108px);
+  padding: clamp(24px, 2.4vw, 44px);
+  border-radius: 28px;
+  background: rgba(105, 48, 232, 0.92);
+  box-shadow: 0 28px 70px rgba(40, 0, 80, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.bento-slide-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: clamp(14px, 1.4vw, 24px);
+}
+
+.bento-slide-panel li {
+  position: relative;
+  padding-left: 44px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(19px, 2vw, 34px);
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.bento-slide-panel li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.4em;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.bento-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.bento-progress-item {
+  width: clamp(120px, 13vw, 250px);
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(45, 11, 70, 0.35);
+  cursor: pointer;
+}
+
+.bento-progress-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.bento-progress-item.is-active span {
+  animation: bentoProgress var(--bento-duration, 5200ms) linear forwards;
+}
+
+.nuvo-bento-purple {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  background: #4b006c;
+  color: #ffffff;
+}
+
+.bento-card-glow {
+  position: absolute;
+  inset: auto 20px 20px 20px;
+  height: 58%;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #7613e6, #c20dff);
+  opacity: 0.95;
+}
+
+.nuvo-bento-purple > *:not(.bento-card-glow) {
+  position: relative;
+  z-index: 2;
+}
+
+.nuvo-bento-muted {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  background: #d9cfe2;
+  color: #3a064a;
+}
+
+.bento-tag {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bento-tag.light {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.nuvo-bento-purple h3,
+.nuvo-bento-muted h3 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 2vw, 36px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.nuvo-bento-purple p,
+.nuvo-bento-muted p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 600;
+  opacity: 0.86;
+}
+
+.nuvo-bento-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+  gap: 36px;
+  padding: clamp(30px, 4vw, 58px);
+  background: #2b0c50;
+  color: #ffffff;
+}
+
+.nuvo-bento-wide h3 {
+  margin: 0;
+  max-width: 820px;
+  font-size: clamp(28px, 3vw, 52px);
+  line-height: 1.12;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+}
+
+.bento-wide-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.bento-wide-points p {
+  margin: 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.bento-wide-points strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+@keyframes bentoProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .nuvo-bento-section {
+    width: min(760px, calc(100vw - 36px));
+  }
+
+  .nuvo-bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .nuvo-bento-main {
+    grid-column: 1 / -1;
+    min-height: 620px;
+  }
+
+  .nuvo-bento-wide {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+  }
+
+  .bento-wide-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .nuvo-bento-section {
+    width: min(430px, calc(100vw - 28px));
+    margin-bottom: 80px;
+  }
+
+  .nuvo-section-heading {
+    margin-bottom: 36px;
+  }
+
+  .nuvo-section-heading h2 {
+    font-size: 34px;
+  }
+
+  .nuvo-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .nuvo-bento-main {
+    min-height: 560px;
+  }
+
+  .bento-slide {
+    padding: 26px;
+  }
+
+  .bento-slide h3 {
+    font-size: 36px;
+  }
+
+  .bento-slide-panel {
+    left: 20px;
+    right: 20px;
+    bottom: 76px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .bento-slide-panel li {
+    padding-left: 30px;
+    font-size: 17px;
+  }
+
+  .bento-slide-panel li::before {
+    width: 13px;
+    height: 13px;
+    border-width: 4px;
+  }
+
+  .bento-progress-item {
+    width: 110px;
+  }
+
+  .nuvo-bento-wide {
+    padding: 28px;
+  }
+}
+
+/* =========================================
+   Bento First Card Final Refinement
+   Makes slide match the reference screenshot
+========================================= */
+
+.nuvo-bento-section {
+  width: min(1320px, calc(100vw - 110px)) !important;
+  margin: 24px auto 120px !important;
+}
+
+.nuvo-section-heading {
+  text-align: center;
+  margin-bottom: 54px !important;
+}
+
+.nuvo-section-heading span {
+  min-height: 28px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #4b0b5d;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nuvo-section-heading h2 {
+  margin: 18px 0 0 !important;
+  color: #40104f;
+  font-size: clamp(34px, 3.3vw, 58px) !important;
+  line-height: 1.16 !important;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.nuvo-bento-grid {
+  display: grid;
+  grid-template-columns: 2.05fr 1fr 1fr !important;
+  grid-template-rows: clamp(300px, 24vw, 430px) clamp(200px, 15vw, 270px) !important;
+  gap: 18px !important;
+}
+
+.nuvo-bento-card {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.nuvo-bento-main {
+  position: relative;
+  background:
+    
+    url("assets/managementbg.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  color: #ffffff;
+}
+
+/* Slide should fill card, but not oversize content */
+.bento-slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(22px, 2.2vw, 38px) !important;
+  opacity: 0;
+  transform: translateY(18px) scale(0.99);
+  filter: blur(7px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s ease;
+}
+
+.bento-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.bento-slide h3 {
+    margin: 0 !important;
+    max-width: 98% !important;
+    color: #ffffff;
+    font-size: clamp(24px, 2vw, 50px) !important;
+    line-height: 1.18 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.005em !important;
+}
+
+/* Common purple panel */
+.bento-slide-panel {
+  position: absolute;
+  left: clamp(18px, 2vw, 34px) !important;
+  right: clamp(18px, 2vw, 34px) !important;
+  bottom: clamp(72px, 5.4vw, 92px) !important;
+  border-radius: 12px !important;
+  background: rgba(109, 48, 232, 0.96) !important;
+  box-shadow: 0 22px 48px rgba(54, 0, 110, 0.22);
+  backdrop-filter: blur(10px);
+}
+
+/* Slide 1 paragraph version */
+.single-text-panel {
+  padding: clamp(18px, 1.7vw, 28px) clamp(20px, 2vw, 32px) !important;
+}
+
+.single-text-panel p {
+  margin: 0;
+  max-width: 92%;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(18px, 1.75vw, 28px) !important;
+  line-height: 1.34 !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Slide 2 bullet version */
+.points-panel {
+  padding: clamp(18px, 1.7vw, 30px) clamp(20px, 2vw, 34px) !important;
+}
+
+.points-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: clamp(9px, 0.2vw, 16px) !important;
+}
+
+.points-panel li {
+  position: relative;
+  padding-left: clamp(24px, 1vw, 38px) !important;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(16px, 1.5vw, 24px) !important;
+  line-height: 1.28 !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.points-panel li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.42em;
+  width: clamp(10px, .6vw, 15px) !important;
+  height: clamp(10px, 0.9vw, 15px) !important;
+  border-radius: 50%;
+  border: 4px solid #ffffff !important;
+  box-sizing: border-box;
+}
+
+/* Bottom progress like reference */
+.bento-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 28px !important;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.bento-progress-item {
+  width: clamp(110px, 10vw, 190px) !important;
+  height: 4px !important;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(45, 11, 70, 0.38) !important;
+}
+
+.bento-progress-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.bento-progress-item.is-active span {
+  animation: bentoProgress var(--bento-duration, 5200ms) linear forwards;
+}
+
+/* Right small cards to match ash/purple block style */
+.nuvo-bento-purple {
+  padding: 24px !important;
+  background: #4b006c !important;
+  color: #ffffff;
+}
+
+.bento-card-glow {
+  inset: auto 18px 18px 18px !important;
+  height: 58% !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #7613e6, #c20dff);
+}
+
+.nuvo-bento-muted {
+  padding: 24px !important;
+  background: #d9cfe2 !important;
+  color: #3a064a;
+}
+
+.nuvo-bento-purple h3,
+.nuvo-bento-muted h3 {
+  font-size: clamp(22px, 1.75vw, 32px) !important;
+  line-height: 1.12 !important;
+}
+
+.nuvo-bento-purple p,
+.nuvo-bento-muted p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* Mobile/tablet */
+@media (max-width: 980px) {
+  .nuvo-bento-section {
+    width: min(760px, calc(100vw - 36px)) !important;
+  }
+
+  .nuvo-bento-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .nuvo-bento-main {
+    grid-column: 1 / -1;
+    min-height: 520px !important;
+  }
+
+  .bento-slide h3 {
+    font-size: clamp(36px, 6vw, 58px) !important;
+  }
+
+  .single-text-panel p {
+    font-size: clamp(20px, 3.3vw, 28px) !important;
+  }
+
+  .points-panel li {
+    font-size: clamp(18px, 3vw, 25px) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .nuvo-bento-section {
+    width: min(430px, calc(100vw - 28px)) !important;
+    margin-bottom: 80px !important;
+  }
+
+  .nuvo-section-heading h2 {
+    font-size: 32px !important;
+  }
+
+  .nuvo-bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .nuvo-bento-main {
+    min-height: 500px !important;
+  }
+
+  .bento-slide {
+    padding: 24px !important;
+  }
+
+  .bento-slide h3 {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
+  }
+
+  .bento-slide-panel {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 72px !important;
+  }
+
+  .single-text-panel p {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  .points-panel li {
+    font-size: 16px !important;
+    line-height: 1.32 !important;
+  }
+
+  .bento-progress-item {
+    width: 105px !important;
+  }
+}
+
+/* =========================================
+   FINAL BENTO SPACE-EFFICIENT FIX
+   Smaller purple panel, smaller text,
+   better title breathing space
+========================================= */
+
+/* Overall bento section spacing */
+.nuvo-bento-section {
+  margin-top: 10px !important;
+  margin-bottom: 105px !important;
+  background: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.13), transparent 30%),
+    linear-gradient(180deg, #FFFFFF 0%, #cb75fd 100%) !important;
+}
+
+/* Make heading a little cleaner and tighter */
+.nuvo-section-heading {
+  margin-bottom: 42px !important;
+}
+
+.nuvo-section-heading h2 {
+  font-size: clamp(42px, 4.4vw, 76px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Slightly reduce main bento card height */
+.nuvo-bento-grid {
+  grid-template-rows: clamp(280px, 22vw, 390px) clamp(190px, 14vw, 250px) !important;
+}
+
+/* Add better space around title */
+.bento-slide {
+  padding: clamp(24px, 2.1vw, 34px) !important;
+}
+
+/* Title smaller and with breathing room */
+.bento-slide h3 {
+  max-width: 98% !important;
+  font-size: clamp(26px, 2.45vw, 46px) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+  letter-spacing: 0 !important;
+}
+
+/* Purple panel smaller and more controlled */
+.bento-slide-panel {
+  left: clamp(18px, 1.8vw, 30px) !important;
+  right: clamp(34px, 5.2vw, 82px) !important;
+  bottom: clamp(62px, 4.7vw, 78px) !important;
+  padding: clamp(15px, 1.35vw, 23px) clamp(18px, 1.7vw, 28px) !important;
+  border-radius: 11px !important;
+  background: rgba(109, 48, 232, 0.94) !important;
+  box-shadow: 0 16px 34px rgba(54, 0, 110, 0.18) !important;
+}
+
+/* Slide 1 paragraph: smaller and more compact */
+.single-text-panel p {
+  max-width: 90% !important;
+  font-size: clamp(15px, 1.35vw, 22px) !important;
+  line-height: 1.32 !important;
+  font-weight: 500 !important;
+}
+
+/* Slide 2 bullet panel compact */
+.points-panel ul {
+  gap: clamp(7px, 0.65vw, 12px) !important;
+}
+
+.points-panel li {
+  padding-left: clamp(22px, 1.5vw, 31px) !important;
+  font-size: clamp(14px, 1.12vw, 19px) !important;
+  line-height: 1.28 !important;
+  font-weight: 500 !important;
+}
+
+.points-panel li::before {
+  left: 2px !important;
+  top: 0.42em !important;
+  width: clamp(9px, 0.7vw, 12px) !important;
+  height: clamp(9px, 0.7vw, 12px) !important;
+  border-width: 3px !important;
+}
+
+/* Progress bar slightly higher and smaller */
+.bento-progress {
+  bottom: 24px !important;
+  gap: 7px !important;
+}
+
+.bento-progress-item {
+  width: clamp(92px, 8.5vw, 155px) !important;
+  height: 3px !important;
+}
+
+/* Right-side bento cards also slightly compact */
+.nuvo-bento-purple,
+.nuvo-bento-muted {
+  padding: 20px !important;
+}
+
+.bento-card-glow {
+  inset: auto 16px 16px 16px !important;
+  height: 54% !important;
+}
+
+.nuvo-bento-purple h3,
+.nuvo-bento-muted h3 {
+  font-size: clamp(20px, 1.45vw, 27px) !important;
+  line-height: 1.13 !important;
+  margin-bottom: 9px !important;
+}
+
+.nuvo-bento-purple p,
+.nuvo-bento-muted p {
+  font-size: 13px !important;
+  line-height: 1.48 !important;
+}
+
+.bento-tag {
+  margin-bottom: 10px !important;
+  padding: 6px 11px !important;
+  font-size: 10.5px !important;
+}
+
+/* Wide bottom card compact */
+.nuvo-bento-wide {
+  padding: clamp(24px, 3vw, 42px) !important;
+}
+
+.nuvo-bento-wide h3 {
+  font-size: clamp(24px, 2.35vw, 42px) !important;
+  line-height: 1.14 !important;
+}
+
+.bento-wide-points p {
+  padding: 14px !important;
+  font-size: 13px !important;
+}
+
+.bento-wide-points strong {
+  font-size: 17px !important;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .nuvo-bento-main {
+    min-height: 480px !important;
+  }
+
+  .bento-slide h3 {
+    font-size: clamp(32px, 5vw, 48px) !important;
+  }
+
+  .single-text-panel p {
+    font-size: clamp(17px, 2.7vw, 22px) !important;
+  }
+
+  .points-panel li {
+    font-size: clamp(16px, 2.4vw, 21px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .nuvo-section-heading {
+    margin-bottom: 30px !important;
+  }
+
+  .nuvo-section-heading h2 {
+    font-size: 30px !important;
+  }
+
+  .nuvo-bento-main {
+    min-height: 455px !important;
+  }
+
+  .bento-slide {
+    padding: 22px !important;
+  }
+
+  .bento-slide h3 {
+    font-size: 30px !important;
+    line-height: 1.18 !important;
+  }
+
+  .bento-slide-panel {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 64px !important;
+    padding: 17px 18px !important;
+  }
+
+  .single-text-panel p {
+    font-size: 16px !important;
+    line-height: 1.34 !important;
+    max-width: 100% !important;
+  }
+
+  .points-panel li {
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+  .bento-progress {
+    bottom: 22px !important;
+  }
+
+  .bento-progress-item {
+    width: 92px !important;
+  }
+}
+
+
+/* =========================================
+   FINAL BENTO TITLE + CARD TEXT FIX
+========================================= */
+
+/* Main slider title - both slide 1 and slide 2 */
+.nuvo-bento-main .bento-slide h3 {
+  max-width: 98% !important;
+  font-size: clamp(24px, 2.45vw, 46px) !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  margin: 0 0 20px 0 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Since the purple panel is absolute, control its position here */
+.nuvo-bento-main .bento-slide-panel {
+  left: clamp(18px, 1.8vw, 30px) !important;
+  right: clamp(34px, 5.2vw, 82px) !important;
+  bottom: clamp(58px, 4.4vw, 74px) !important;
+  padding: clamp(14px, 1.25vw, 21px) clamp(17px, 1.55vw, 26px) !important;
+  border-radius: 11px !important;
+}
+
+/* Slide 1 sentence text */
+.nuvo-bento-main .single-text-panel p {
+  max-width: 92% !important;
+  font-size: clamp(15px, 1.25vw, 21px) !important;
+  line-height: 1.32 !important;
+}
+
+/* Slide 2 bullet text */
+.nuvo-bento-main .points-panel ul {
+  gap: clamp(6px, 0.55vw, 10px) !important;
+}
+
+.nuvo-bento-main .points-panel li {
+  padding-left: clamp(21px, 1.35vw, 29px) !important;
+  font-size: clamp(14px, 1vw, 18px) !important;
+  line-height: 1.25 !important;
+}
+
+.nuvo-bento-main .points-panel li::before {
+  width: clamp(8px, 0.65vw, 11px) !important;
+  height: clamp(8px, 0.65vw, 11px) !important;
+  border-width: 3px !important;
+}
+
+/* Right-side bento cards need their own h3 selector */
+.nuvo-bento-purple h3,
+.nuvo-bento-muted h3 {
+  font-size: clamp(18px, 1.35vw, 25px) !important;
+  line-height: 1.15 !important;
+  font-weight: 700 !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: 0 !important;
+}
+
+.nuvo-bento-purple p,
+.nuvo-bento-muted p {
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+}
+
+/* Bottom wide bento card title */
+.nuvo-bento-wide h3 {
+  font-size: clamp(23px, 2.15vw, 39px) !important;
+  line-height: 1.14 !important;
+  font-weight: 700 !important;
+}
+
+/* Important: override tablet rules also */
+@media (max-width: 980px) {
+  .nuvo-bento-main .bento-slide h3 {
+    font-size: clamp(28px, 4.2vw, 42px) !important;
+  }
+
+  .nuvo-bento-main .single-text-panel p {
+    font-size: clamp(16px, 2.4vw, 21px) !important;
+  }
+
+  .nuvo-bento-main .points-panel li {
+    font-size: clamp(15px, 2.1vw, 19px) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .nuvo-bento-main .bento-slide h3 {
+    font-size: 28px !important;
+    line-height: 1.18 !important;
+  }
+
+  .nuvo-bento-main .bento-slide-panel {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 62px !important;
+  }
+}
+
+/* =========================================
+   Stakeholder Bento Grid Final
+========================================= */
+
+.stakeholder-bento-grid {
+  grid-template-columns: 2.05fr 1fr 1fr !important;
+  grid-template-rows: clamp(320px, 25vw, 430px) clamp(205px, 15vw, 270px) !important;
+  gap: 18px !important;
+}
+
+.stakeholder-management {
+  grid-row: 1 / 3;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(142, 104, 235, 0.98) 0%,
+      rgba(142, 104, 235, 0.88) 46%,
+      rgba(142, 104, 235, 0.62) 100%
+    ),
+    url("assets/managementbg.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.stakeholder-label {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stakeholder-label.dark {
+  background: rgba(75, 11, 93, 0.12);
+  color: #4b0b5d;
+}
+
+.stakeholder-management .bento-slide {
+  padding: clamp(24px, 2.3vw, 38px) !important;
+}
+
+.stakeholder-management .bento-slide h3 {
+  max-width: 96% !important;
+  font-size: clamp(28px, 2.65vw, 48px) !important;
+  line-height: 1.2 !important;
+  font-weight: 650 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.stakeholder-management .bento-slide-panel {
+  left: clamp(20px, 2vw, 34px) !important;
+  right: clamp(38px, 5vw, 86px) !important;
+  bottom: clamp(66px, 5vw, 82px) !important;
+  padding: clamp(16px, 1.4vw, 24px) clamp(18px, 1.8vw, 30px) !important;
+  border-radius: 13px !important;
+  background: rgba(109, 48, 232, 0.94) !important;
+  box-shadow: 0 18px 38px rgba(54, 0, 110, 0.2) !important;
+}
+
+.stakeholder-management .single-text-panel p {
+  max-width: 92% !important;
+  font-size: clamp(15px, 1.25vw, 22px) !important;
+  line-height: 1.34 !important;
+  font-weight: 500 !important;
+}
+
+.stakeholder-management .points-panel ul {
+  gap: clamp(7px, 0.55vw, 11px) !important;
+}
+
+.stakeholder-management .points-panel li {
+  padding-left: clamp(22px, 1.45vw, 30px) !important;
+  font-size: clamp(14px, 1vw, 18px) !important;
+  line-height: 1.28 !important;
+}
+
+.stakeholder-management .points-panel li::before {
+  width: clamp(8px, 0.65vw, 11px) !important;
+  height: clamp(8px, 0.65vw, 11px) !important;
+  border-width: 3px !important;
+}
+
+.stakeholder-kpi {
+  position: absolute;
+  right: 28px;
+  top: 28px;
+  width: 112px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+}
+
+.stakeholder-kpi strong {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.stakeholder-kpi span {
+  display: block;
+  margin-top: 5px;
+  max-width: 82px;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.stakeholder-card {
+  padding: 24px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.stakeholder-teachers {
+  background: #d9cfe2 !important;
+  color: #3a064a !important;
+}
+
+.stakeholder-parents {
+  background: #4b006c !important;
+}
+
+.stakeholder-students {
+  grid-column: 2 / 4;
+  display: grid !important;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 22px;
+  background: #2b0c50 !important;
+  color: #ffffff;
+}
+
+.stakeholder-card h3 {
+  margin: 0 0 10px;
+  font-size: clamp(20px, 1.55vw, 30px);
+  line-height: 1.13;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.stakeholder-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.48;
+  font-weight: 600;
+  opacity: 0.86;
+}
+
+.stakeholder-card ul {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.stakeholder-card li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  font-weight: 750;
+}
+
+.stakeholder-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 900;
+}
+
+.mini-kpi {
+  width: fit-content;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(75, 11, 93, 0.1);
+  color: #4b0b5d;
+}
+
+.mini-kpi.light {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.mini-kpi strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.mini-kpi span {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.student-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.student-points p {
+  margin: 0;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.student-points strong {
+  color: #ffffff;
+  font-size: 17px;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-bento-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .stakeholder-management {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 500px !important;
+  }
+
+  .stakeholder-students {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stakeholder-management {
+    min-height: 470px !important;
+  }
+
+  .stakeholder-management .bento-slide h3 {
+    font-size: 30px !important;
+  }
+
+  .stakeholder-management .bento-slide-panel {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 62px !important;
+  }
+
+  .stakeholder-management .single-text-panel p {
+    font-size: 16px !important;
+  }
+
+  .stakeholder-students {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .student-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   Management 3D Icon - Motion Fix
+========================================= */
+
+.stakeholder-management {
+  position: relative !important;
+  isolation: isolate;
+}
+
+.management-3d-icon {
+  position: absolute !important;
+  left: 50% !important;
+  top: 46% !important;
+  width: clamp(132px, 20vw, 232px) !important;
+  height: auto !important;
+
+  /* IMPORTANT: no !important here, animation needs to control transform */
+  transform: translate(-50%, -50%) rotate(-3deg);
+
+  z-index: 1 !important;
+  pointer-events: none !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 18px 34px rgba(65, 0, 120, 0.18)) saturate(1.05);
+  transform-origin: center center;
+  will-change: transform, filter;
+  animation: managementIconPremiumMotion 5.8s ease-in-out infinite;
+}
+
+.stakeholder-management .bento-slide {
+  z-index: 2 !important;
+}
+
+.stakeholder-management .bento-slide-panel {
+  position: absolute !important;
+  z-index: 5 !important;
+}
+
+.stakeholder-management .stakeholder-label,
+.stakeholder-management .bento-slide h3 {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.stakeholder-management .bento-progress,
+.stakeholder-management .stakeholder-kpi {
+  z-index: 6 !important;
+}
+
+@keyframes managementIconPremiumMotion {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) translateX(0) rotate(-4deg) scale(1);
+    filter: drop-shadow(0 18px 34px rgba(65, 0, 120, 0.18)) saturate(1.05) brightness(1);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) translateY(-12px) translateX(8px) rotate(-1deg) scale(1.025);
+    filter: drop-shadow(0 24px 42px rgba(95, 0, 160, 0.24)) saturate(1.12) brightness(1.08);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px) translateX(0) rotate(2deg) scale(1.05);
+    filter: drop-shadow(0 30px 52px rgba(115, 0, 190, 0.28)) saturate(1.18) brightness(1.12);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) translateY(-9px) translateX(-8px) rotate(-2deg) scale(1.02);
+    filter: drop-shadow(0 22px 40px rgba(75, 0, 135, 0.22)) saturate(1.1) brightness(1.06);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) translateY(0) translateX(0) rotate(-4deg) scale(1);
+    filter: drop-shadow(0 18px 34px rgba(65, 0, 120, 0.18)) saturate(1.05) brightness(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .management-3d-icon {
+    width: clamp(120px, 20vw, 160px) !important;
+    top: 43% !important;
+    opacity: 0.45 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .management-3d-icon {
+    width: 120px !important;
+    left: 54% !important;
+    top: 42% !important;
+    opacity: 0.38 !important;
+  }
+}
+
+/* =========================================
+   Teachers Bento Background Image
+   Uses: assets/teacherboxbg.png
+========================================= */
+
+.stakeholder-teachers {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  color: #3a064a !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(217, 207, 226, 0.12) 0%,
+      rgba(225, 214, 235, 0.24) 45%,
+      rgba(235, 224, 244, 0.16) 100%
+    ),
+    url("assets/teacherboxbg.png") !important;
+
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Keep all existing text above the background */
+.stakeholder-teachers .stakeholder-label,
+.stakeholder-teachers .stakeholder-card-content,
+.stakeholder-teachers .mini-kpi {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make the label and KPI blend with the new bg */
+.stakeholder-teachers .stakeholder-label.dark {
+  background: rgba(75, 11, 93, 0.11) !important;
+  color: #4b0b5d !important;
+}
+
+.stakeholder-teachers .mini-kpi {
+  background: rgba(75, 11, 93, 0.10) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================
+   Teachers Bento Slider + Video
+   Uses: assets/teachersicon3d.webm
+========================================= */
+
+.stakeholder-teachers.js-teacher-slider {
+  position: relative !important;
+  display: block !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  padding: 0 !important;
+  color: #3a064a !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(217, 207, 226, 0.35) 0%,
+      rgba(225, 214, 235, 0.28) 48%,
+      rgba(235, 224, 244, 0.20) 100%
+    ),
+    url("assets/teacherboxbg.png") !important;
+
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Soft overlay to keep text readable */
+.stakeholder-teachers.js-teacher-slider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 78% 58%, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(90deg, rgba(217, 207, 226, 0.60), rgba(217, 207, 226, 0.20));
+  pointer-events: none;
+}
+
+.teacher-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: clamp(20px, 1.7vw, 26px) !important;
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+  filter: blur(7px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s ease;
+}
+
+.teacher-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.teacher-slide .stakeholder-label.dark {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 14px !important;
+  background: rgba(75, 11, 93, 0.12) !important;
+  color: #4b0b5d !important;
+}
+
+.teacher-slide h3 {
+  position: relative;
+  z-index: 3;
+  margin: 0 !important;
+  color: #3a064a !important;
+  font-size: clamp(22px, 1.8vw, 34px) !important;
+  line-height: 1.13 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.teacher-media-row {
+  position: absolute;
+  left: clamp(20px, 1.7vw, 26px);
+  right: clamp(14px, 1.4vw, 22px);
+  bottom: 46px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr minmax(92px, 40%);
+  align-items: end;
+  gap: 10px;
+}
+
+.teacher-benefit-list {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid;
+  gap: 8px;
+}
+
+.teacher-benefit-list li {
+  position: relative;
+  padding-left: 20px;
+  color: #3a064a;
+  font-size: clamp(12px, 0.9vw, 14px);
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.teacher-benefit-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #4b0b5d;
+  font-weight: 950;
+}
+
+.teacher-video-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+.teacher-video-wrap video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 18px 28px rgba(75, 11, 93, 0.16))
+    saturate(1.05);
+}
+
+.teacher-slide-copy {
+  position: relative;
+  z-index: 3;
+  margin: clamp(16px, 1.5vw, 24px) 0 0 !important;
+  max-width: 92%;
+  color: rgba(58, 6, 74, 0.84) !important;
+  font-size: clamp(13px, 1vw, 16px) !important;
+  line-height: 1.48 !important;
+  font-weight: 700 !important;
+}
+
+.teacher-kpi-card {
+  position: absolute;
+  left: clamp(20px, 1.7vw, 26px);
+  bottom: 48px;
+  z-index: 3;
+  width: fit-content;
+  padding: 13px 18px;
+  border-radius: 18px;
+  background: rgba(75, 11, 93, 0.11);
+  color: #4b0b5d;
+  backdrop-filter: blur(10px);
+}
+
+.teacher-kpi-card strong {
+  display: block;
+  font-size: clamp(28px, 2.4vw, 42px);
+  line-height: 0.9;
+  font-weight: 850;
+}
+
+.teacher-kpi-card span {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 1.15;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.teacher-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  z-index: 5;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+
+.teacher-progress-item {
+  width: clamp(54px, 4.6vw, 82px);
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(75, 11, 93, 0.25);
+  cursor: pointer;
+}
+
+.teacher-progress-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: #4b0b5d;
+}
+
+.teacher-progress-item.is-active span {
+  animation: teacherProgress var(--teacher-duration, 5200ms) linear forwards;
+}
+
+@keyframes teacherProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .teacher-media-row {
+    grid-template-columns: 1fr minmax(90px, 34%);
+  }
+
+  .teacher-video-wrap {
+    opacity: 0.86;
+  }
+}
+
+@media (max-width: 620px) {
+  .stakeholder-teachers.js-teacher-slider {
+    min-height: 360px !important;
+  }
+
+  .teacher-slide {
+    padding: 22px !important;
+  }
+
+  .teacher-media-row {
+    left: 22px;
+    right: 18px;
+    bottom: 48px;
+    grid-template-columns: 1fr 115px;
+  }
+
+  .teacher-slide h3 {
+    font-size: 28px !important;
+  }
+
+  .teacher-slide-copy {
+    font-size: 15px !important;
+  }
+
+  .teacher-kpi-card {
+    left: 22px;
+    bottom: 52px;
+  }
+}
+
+/* =========================================
+   Teachers Card Spacing Fix - Final
+========================================= */
+
+.stakeholder-teachers.js-teacher-slider {
+  min-height: 100% !important;
+  padding: 0 !important;
+}
+
+/* Each teacher slide gets clear top, middle and bottom spacing */
+.stakeholder-teachers .teacher-slide {
+  padding: clamp(22px, 1.85vw, 31px) !important;
+}
+
+/* Label spacing */
+.stakeholder-teachers .teacher-slide .stakeholder-label.dark {
+  margin-bottom: clamp(18px, 1.4vw, 26px) !important;
+}
+
+/* Title spacing */
+.stakeholder-teachers .teacher-slide h3 {
+    max-width: 98% !important;
+    margin: 0 !important;
+    color: #3a064a !important;
+    font-size: clamp(20px, 2.05vw, 36px) !important;
+    line-height: 1.18 !important;
+    font-weight: 850 !important;
+    letter-spacing: -0.015em !important;
+}
+
+/* Slide 1: points + video area */
+.stakeholder-teachers .teacher-media-row {
+  left: clamp(24px, 1.85vw, 31px) !important;
+  right: clamp(20px, 1.6vw, 28px) !important;
+  bottom: 44px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 122px !important;
+  align-items: end !important;
+  gap: 14px !important;
+}
+
+/* Points spacing */
+.stakeholder-teachers .teacher-benefit-list {
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list li {
+  padding-left: 20px !important;
+  font-size: clamp(13px, 0.95vw, 15px) !important;
+  line-height: 1.22 !important;
+  font-weight: 850 !important;
+}
+
+/* Video size and placement */
+.stakeholder-teachers .teacher-video-wrap {
+  width: 122px !important;
+  max-width: 122px !important;
+  justify-self: end !important;
+  transform: translateY(2px) !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap video {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Slide 2 paragraph spacing */
+.stakeholder-teachers .teacher-slide-copy {
+  margin-top: clamp(26px, 2vw, 36px) !important;
+  max-width: 88% !important;
+  font-size: clamp(13px, 1vw, 16px) !important;
+  line-height: 1.48 !important;
+  font-weight: 750 !important;
+}
+
+/* Slide 2 KPI spacing */
+.stakeholder-teachers .teacher-kpi-card {
+  left: clamp(24px, 1.85vw, 31px) !important;
+  bottom: 50px !important;
+  padding: 13px 20px !important;
+  border-radius: 18px !important;
+}
+
+.stakeholder-teachers .teacher-kpi-card strong {
+  font-size: clamp(34px, 2.8vw, 48px) !important;
+  line-height: 0.9 !important;
+}
+
+.stakeholder-teachers .teacher-kpi-card span {
+  margin-top: 7px !important;
+  font-size: 10px !important;
+  line-height: 1.1 !important;
+}
+
+/* Progress bar spacing */
+.stakeholder-teachers .teacher-progress {
+  bottom: 21px !important;
+  gap: 8px !important;
+}
+
+.stakeholder-teachers .teacher-progress-item {
+  width: clamp(62px, 5vw, 92px) !important;
+  height: 3px !important;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-teachers .teacher-media-row {
+    grid-template-columns: 1fr 118px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 118px !important;
+    max-width: 118px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-teachers.js-teacher-slider {
+    min-height: 390px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide {
+    padding: 24px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide h3 {
+    font-size: 29px !important;
+    line-height: 1.16 !important;
+  }
+
+  .stakeholder-teachers .teacher-media-row {
+    left: 24px !important;
+    right: 20px !important;
+    bottom: 48px !important;
+    grid-template-columns: 1fr 112px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 112px !important;
+    max-width: 112px !important;
+  }
+
+  .stakeholder-teachers .teacher-benefit-list li {
+    font-size: 14px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide-copy {
+    max-width: 94% !important;
+    font-size: 15px !important;
+  }
+
+  .stakeholder-teachers .teacher-kpi-card {
+    bottom: 52px !important;
+  }
+}
+
+/* =========================================
+   Teachers Card Professional Spacing Final
+   Only affects the Teachers bento card
+========================================= */
+
+.stakeholder-teachers.js-teacher-slider {
+  position: relative !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 100% !important;
+}
+
+/* Common slide layout */
+.stakeholder-teachers .teacher-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  padding: clamp(20px, 1.55vw, 26px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Label */
+.stakeholder-teachers .teacher-slide .stakeholder-label.dark {
+  margin-bottom: clamp(13px, 1vw, 18px) !important;
+  padding: 6px 13px !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Main title */
+.stakeholder-teachers .teacher-slide h3 {
+  max-width: 98% !important;
+  margin: 0 !important;
+  color: #3a064a !important;
+  font-size: clamp(21px, 1.65vw, 31px) !important;
+  line-height: 1.16 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.012em !important;
+}
+
+/* -----------------------------
+   Slide 1: Points + Video
+----------------------------- */
+
+.stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+  position: absolute !important;
+  left: clamp(20px, 1.55vw, 26px) !important;
+  right: clamp(18px, 1.4vw, 24px) !important;
+  bottom: 44px !important;
+  display: grid !important;
+  grid-template-columns: 1fr clamp(82px, 7vw, 112px) !important;
+  align-items: end !important;
+  gap: 10px !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list li {
+  padding-left: 19px !important;
+  color: #3a064a !important;
+  font-size: clamp(12px, 0.82vw, 14px) !important;
+  line-height: 1.22 !important;
+  font-weight: 850 !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list li::before {
+  left: 0 !important;
+  top: 0 !important;
+  font-size: 13px !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap {
+  width: clamp(82px, 7vw, 112px) !important;
+  max-width: clamp(82px, 7vw, 112px) !important;
+  justify-self: end !important;
+  transform: translateY(3px) !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap video {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* -----------------------------
+   Slide 2: Description + KPI
+   KPI is now in normal flow, not overlaying text
+----------------------------- */
+
+.stakeholder-teachers .teacher-slide:nth-of-type(2) {
+  padding-bottom: 48px !important;
+}
+
+.stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-slide-copy {
+  margin: clamp(16px, 1.15vw, 22px) 0 0 !important;
+  max-width: 94% !important;
+  color: rgba(58, 6, 74, 0.84) !important;
+  font-size: clamp(12.5px, 0.88vw, 15px) !important;
+  line-height: 1.42 !important;
+  font-weight: 720 !important;
+}
+
+/* Important: make KPI relative so it does not overlay paragraph */
+.stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-kpi-card {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+  margin-top: auto !important;
+  margin-bottom: 2px !important;
+  width: fit-content !important;
+  max-width: 150px !important;
+  padding: 9px 14px !important;
+  border-radius: 15px !important;
+  background: rgba(75, 11, 93, 0.10) !important;
+  color: #4b0b5d !important;
+  backdrop-filter: blur(8px);
+}
+
+.stakeholder-teachers .teacher-kpi-card strong {
+  font-size: clamp(24px, 2vw, 34px) !important;
+  line-height: 0.9 !important;
+  font-weight: 850 !important;
+}
+
+.stakeholder-teachers .teacher-kpi-card span {
+  margin-top: 5px !important;
+  font-size: 8.5px !important;
+  line-height: 1.08 !important;
+  font-weight: 950 !important;
+  letter-spacing: 0.045em !important;
+}
+
+/* Progress bar */
+.stakeholder-teachers .teacher-progress {
+  bottom: 18px !important;
+  gap: 7px !important;
+  z-index: 8 !important;
+}
+
+.stakeholder-teachers .teacher-progress-item {
+  width: clamp(58px, 4.5vw, 82px) !important;
+  height: 3px !important;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-teachers .teacher-slide h3 {
+    font-size: clamp(23px, 3.2vw, 32px) !important;
+  }
+
+  .stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+    grid-template-columns: 1fr 106px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 106px !important;
+    max-width: 106px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-teachers.js-teacher-slider {
+    min-height: 370px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide {
+    padding: 22px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide h3 {
+    font-size: 28px !important;
+    line-height: 1.16 !important;
+  }
+
+  .stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+    left: 22px !important;
+    right: 18px !important;
+    bottom: 48px !important;
+    grid-template-columns: 1fr 104px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 104px !important;
+    max-width: 104px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-slide-copy {
+    font-size: 14px !important;
+    max-width: 96% !important;
+  }
+
+  .stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-kpi-card {
+    margin-bottom: 4px !important;
+  }
+}
+
+/* =========================================
+   Teachers Slider Balanced Spacing Fix
+   CSS only - no HTML/JS change needed
+========================================= */
+
+/* Card base */
+.stakeholder-teachers.js-teacher-slider {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* Common slide spacing */
+.stakeholder-teachers .teacher-slide {
+  padding: clamp(20px, 1.55vw, 25px) !important;
+}
+
+/* Label */
+.stakeholder-teachers .teacher-slide .stakeholder-label.dark {
+  margin-bottom: 14px !important;
+  padding: 6px 13px !important;
+  font-size: 10px !important;
+}
+
+/* Title */
+.stakeholder-teachers .teacher-slide h3 {
+  max-width: 96% !important;
+  margin: 0 !important;
+  font-size: clamp(22px, 1.62vw, 30px) !important;
+  line-height: 1.17 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.012em !important;
+}
+
+/* =========================
+   Slide 1: reduce empty gap
+========================= */
+
+.stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+  position: absolute !important;
+  left: clamp(20px, 1.55vw, 25px) !important;
+  right: clamp(18px, 1.45vw, 24px) !important;
+
+  /* Main fix: move points/video slightly upward */
+  bottom: clamp(64px, 5vw, 82px) !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr clamp(78px, 6.5vw, 104px) !important;
+  align-items: end !important;
+  gap: 8px !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list {
+  gap: 7px !important;
+}
+
+.stakeholder-teachers .teacher-benefit-list li {
+  padding-left: 18px !important;
+  font-size: clamp(12px, 0.78vw, 13.5px) !important;
+  line-height: 1.22 !important;
+  font-weight: 850 !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap {
+  width: clamp(78px, 6.5vw, 104px) !important;
+  max-width: clamp(78px, 6.5vw, 104px) !important;
+  justify-self: end !important;
+  transform: translateY(2px) !important;
+}
+
+/* =========================
+   Slide 2: compact natural flow
+========================= */
+
+.stakeholder-teachers .teacher-slide:nth-of-type(2) {
+  display: flex !important;
+  flex-direction: column !important;
+  padding-bottom: 48px !important;
+}
+
+.stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-slide-copy {
+  margin: clamp(16px, 1.1vw, 21px) 0 0 !important;
+  max-width: 92% !important;
+  font-size: clamp(12.5px, 0.84vw, 14.5px) !important;
+  line-height: 1.42 !important;
+  font-weight: 720 !important;
+}
+
+/* KPI should sit below text, not too far and not overlay */
+.stakeholder-teachers .teacher-slide:nth-of-type(2) .teacher-kpi-card {
+  position: relative !important;
+  left: auto !important;
+  bottom: auto !important;
+
+  margin-top: clamp(18px, 1.4vw, 26px) !important;
+  margin-bottom: 0 !important;
+
+  width: fit-content !important;
+  max-width: 145px !important;
+  padding: 8px 13px !important;
+  border-radius: 14px !important;
+}
+
+.stakeholder-teachers .teacher-kpi-card strong {
+  font-size: clamp(25px, 1.9vw, 34px) !important;
+  line-height: 0.9 !important;
+}
+
+.stakeholder-teachers .teacher-kpi-card span {
+  margin-top: 5px !important;
+  font-size: 8.5px !important;
+  line-height: 1.08 !important;
+}
+
+/* Progress stays clean at bottom */
+.stakeholder-teachers .teacher-progress {
+  bottom: 17px !important;
+}
+
+.stakeholder-teachers .teacher-progress-item {
+  width: clamp(56px, 4.4vw, 78px) !important;
+  height: 3px !important;
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-teachers.js-teacher-slider {
+    min-height: 370px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide h3 {
+    font-size: 28px !important;
+  }
+
+  .stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+    bottom: 70px !important;
+    grid-template-columns: 1fr 100px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 100px !important;
+    max-width: 100px !important;
+  }
+}
+
+/* =========================================
+   Teachers Video Size Increase
+   Only affects teachersicon3d.webm
+========================================= */
+
+/* Make teacher video bigger */
+.stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+  grid-template-columns: 1fr clamp(135px, 10.5vw, 175px) !important;
+  gap: 4px !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap {
+  width: clamp(135px, 10.5vw, 175px) !important;
+  max-width: clamp(135px, 10.5vw, 175px) !important;
+  justify-self: end !important;
+  transform: translateY(6px) translateX(10px) !important;
+}
+
+.stakeholder-teachers .teacher-video-wrap video {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-teachers .teacher-slide:first-of-type .teacher-media-row {
+    grid-template-columns: 1fr 122px !important;
+  }
+
+  .stakeholder-teachers .teacher-video-wrap {
+    width: 122px !important;
+    max-width: 122px !important;
+  }
+}
+
+/* =========================================
+   Parents Bento Background + 3D Icon
+   Background: assets/parents3dicon.png
+   Icon: assets/parents3diconf.png
+========================================= */
+
+.stakeholder-parents {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  color: #ffffff !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(75, 0, 108, 0.12) 0%,
+      rgba(83, 0, 126, 0.24) 45%,
+      rgba(105, 12, 155, 0.16) 100%
+    ),
+    url("assets/parents3dicon.png") !important;
+
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+}
+
+/* soft readable overlay */
+.stakeholder-parents::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.10), transparent 34%),
+    linear-gradient(90deg, rgba(75, 0, 108, 0.92), rgba(75, 0, 108, 0.38));
+  pointer-events: none;
+}
+
+/* Floating 3D icon */
+.parents-3d-icon {
+  position: absolute;
+  right: clamp(-18px, -1vw, -8px);
+  bottom: clamp(70px, 5.6vw, 96px);
+  width: clamp(105px, 8.2vw, 150px);
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.95;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 20px 34px rgba(20, 0, 40, 0.28))
+    saturate(1.08);
+  animation: parentsIconFloat 6.2s ease-in-out infinite;
+}
+
+/* Keep card content above background and icon */
+.stakeholder-parents .stakeholder-label,
+.stakeholder-parents .stakeholder-card-content,
+.stakeholder-parents .mini-kpi {
+  position: relative;
+  z-index: 3;
+}
+
+/* Make bottom KPI slightly glassy */
+.stakeholder-parents .mini-kpi.light {
+  background: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(10px);
+  color: #ffffff !important;
+}
+
+/* Reduce text width so icon gets breathing space */
+.stakeholder-parents .stakeholder-card-content p,
+.stakeholder-parents .stakeholder-card-content ul {
+  max-width: 82%;
+}
+
+@keyframes parentsIconFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1.5deg) scale(1.03);
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .parents-3d-icon {
+    width: 118px;
+    right: -18px;
+    bottom: 82px;
+    opacity: 0.72;
+  }
+
+  .stakeholder-parents .stakeholder-card-content p,
+  .stakeholder-parents .stakeholder-card-content ul {
+    max-width: 88%;
+  }
+}
+
+/* =========================================
+   Students Bento Slider
+========================================= */
+
+.stakeholder-students.js-student-slider {
+  position: relative !important;
+  grid-column: 2 / 4 !important;
+  display: block !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  padding: 0 !important;
+  min-height: 100% !important;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(160, 82, 255, 0.22), transparent 34%),
+    linear-gradient(135deg, #2b0c50 0%, #260942 48%, #1d0635 100%) !important;
+  color: #ffffff !important;
+}
+
+.student-slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(22px, 1.8vw, 32px) !important;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(18px, 2vw, 32px);
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(7px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s ease;
+}
+
+.student-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.student-slide-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.student-slide .stakeholder-label {
+  margin-bottom: clamp(12px, 1vw, 18px) !important;
+  padding: 6px 13px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  font-size: 10.5px !important;
+}
+
+.student-slide h3 {
+  margin: 0 !important;
+  max-width: 92%;
+  color: #ffffff !important;
+  font-size: clamp(24px, 2vw, 38px) !important;
+  line-height: 1.08 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.student-slide p {
+  margin: clamp(12px, 1vw, 18px) 0 0 !important;
+  max-width: 92%;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: clamp(12.5px, 0.9vw, 15px) !important;
+  line-height: 1.45 !important;
+  font-weight: 650 !important;
+}
+
+.student-feature-card {
+  position: relative;
+  z-index: 2;
+  justify-self: end;
+  width: min(100%, 260px);
+  min-height: 126px;
+  padding: clamp(18px, 1.5vw, 26px);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.student-feature-card strong {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(26px, 2.2vw, 42px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.student-feature-card span {
+  display: block;
+  margin-top: 9px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(12px, 0.85vw, 14px);
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+/* Progress bar */
+.student-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 8;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+
+.student-progress-item {
+  width: clamp(58px, 4.6vw, 86px);
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.26);
+  cursor: pointer;
+}
+
+.student-progress-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: #ffffff;
+}
+
+.student-progress-item.is-active span {
+  animation: studentProgress var(--student-duration, 4800ms) linear forwards;
+}
+
+@keyframes studentProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-students.js-student-slider {
+    grid-column: 1 / -1 !important;
+    min-height: 260px !important;
+  }
+
+  .student-slide {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-students.js-student-slider {
+    grid-column: auto !important;
+    min-height: 390px !important;
+  }
+
+  .student-slide {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 24px !important;
+  }
+
+  .student-slide h3 {
+    font-size: 30px !important;
+  }
+
+  .student-feature-card {
+    justify-self: start;
+    width: 100%;
+    min-height: 105px;
+    margin-top: 18px;
+  }
+
+  .student-progress {
+    bottom: 20px;
+  }
+}
+
+
+/* =========================================
+   Student Slider 3D Icons
+   Temporary image names:
+   student-progress-3d.png
+   student-updates-3d.png
+   student-activities-3d.png
+========================================= */
+
+.stakeholder-students.js-student-slider {
+  position: relative !important;
+  grid-column: 2 / 4 !important;
+  display: block !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  padding: 0 !important;
+  min-height: 100% !important;
+  background:
+    radial-gradient(circle at 82% 32%, rgba(160, 82, 255, 0.22), transparent 34%),
+    linear-gradient(135deg, #2b0c50 0%, #260942 48%, #1d0635 100%) !important;
+  color: #ffffff !important;
+}
+
+.student-slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(22px, 1.8vw, 32px) !important;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(16px, 1.8vw, 28px);
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  filter: blur(7px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s ease;
+}
+
+.student-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.student-slide-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.student-slide .stakeholder-label {
+  margin-bottom: clamp(12px, 1vw, 18px) !important;
+  padding: 6px 13px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  font-size: 10.5px !important;
+}
+
+.student-slide h3 {
+  margin: 0 !important;
+  max-width: 94%;
+  color: #ffffff !important;
+  font-size: clamp(24px, 1.95vw, 36px) !important;
+  line-height: 1.08 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.student-slide p {
+  margin: clamp(12px, 1vw, 17px) 0 0 !important;
+  max-width: 92%;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: clamp(12px, 0.86vw, 14.5px) !important;
+  line-height: 1.45 !important;
+  font-weight: 650 !important;
+}
+
+/* Right-side visual area */
+.student-slide-visual {
+  position: relative;
+  z-index: 2;
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+}
+
+/* 3D icon */
+.student-3d-icon {
+  position: absolute;
+  right: clamp(10px, 1.2vw, 24px);
+  top: 50%;
+  width: clamp(135px, 10vw, 205px);
+  height: auto;
+  transform: translateY(-52%);
+  z-index: 1;
+  pointer-events: none;
+  object-fit: contain;
+  opacity: 0.92;
+  filter:
+    drop-shadow(0 22px 40px rgba(0, 0, 0, 0.26))
+    saturate(1.08);
+  animation: studentIconFloat 6.4s ease-in-out infinite;
+}
+
+/* Glass feature card over / near icon */
+.student-feature-card {
+  position: relative;
+  z-index: 3;
+  justify-self: end;
+  width: min(100%, 235px);
+  min-height: 112px;
+  padding: clamp(16px, 1.35vw, 22px);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.07));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.student-feature-card strong {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(24px, 2vw, 38px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.student-feature-card span {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(11px, 0.8vw, 13.5px);
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+/* Progress bar */
+.student-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 8;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+
+.student-progress-item {
+  width: clamp(58px, 4.6vw, 86px);
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.26);
+  cursor: pointer;
+}
+
+.student-progress-item span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: #ffffff;
+}
+
+.student-progress-item.is-active span {
+  animation: studentProgress var(--student-duration, 4800ms) linear forwards;
+}
+
+@keyframes studentProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes studentIconFloat {
+  0%,
+  100% {
+    transform: translateY(-52%) translateX(0) rotate(-2deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-58%) translateX(-6px) rotate(1.5deg) scale(1.035);
+  }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-students.js-student-slider {
+    grid-column: 1 / -1 !important;
+    min-height: 270px !important;
+  }
+
+  .student-slide {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .student-3d-icon {
+    width: clamp(125px, 20vw, 185px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-students.js-student-slider {
+    grid-column: auto !important;
+    min-height: 410px !important;
+  }
+
+  .student-slide {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 24px !important;
+  }
+
+  .student-slide h3 {
+    font-size: 30px !important;
+  }
+
+  .student-slide-visual {
+    min-height: 150px;
+    margin-top: 12px;
+  }
+
+  .student-3d-icon {
+    right: 6px;
+    top: 48%;
+    width: 150px;
+    opacity: 0.76;
+  }
+
+  .student-feature-card {
+    justify-self: start;
+    width: 70%;
+    min-height: 96px;
+  }
+
+  .student-progress {
+    bottom: 20px;
+  }
+}
+
+/* =========================================
+   Students Box Final Alignment + Animation
+   Only affects Students bento box
+========================================= */
+
+.stakeholder-students.js-student-slider {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+/* Better spacing: text left, visual right */
+.stakeholder-students .student-slide {
+  grid-template-columns: 0.95fr 1.05fr !important;
+  align-items: center !important;
+  gap: clamp(16px, 1.8vw, 28px) !important;
+  padding: clamp(22px, 1.8vw, 31px) !important;
+}
+
+/* Left text spacing */
+.stakeholder-students .student-slide-copy {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.stakeholder-students .student-slide .stakeholder-label {
+  margin-bottom: 12px !important;
+}
+
+.stakeholder-students .student-slide h3 {
+  max-width: 95% !important;
+  font-size: clamp(24px, 1.1vw, 36px) !important;
+  line-height: 1.1 !important;
+  font-weight: 850 !important;
+}
+
+.stakeholder-students .student-slide p {
+  max-width: 92% !important;
+  margin-top: 12px !important;
+  font-size: clamp(12px, 0.85vw, 14px) !important;
+  line-height: 1.42 !important;
+}
+
+/* Visual area */
+.stakeholder-students .student-slide-visual {
+  position: relative !important;
+  height: 100% !important;
+  min-height: 175px !important;
+  display: block !important;
+}
+
+/* 3D icon: center-up, slightly left, animated */
+.stakeholder-students .student-3d-icon {
+  position: absolute !important;
+  left: 6% !important;
+  top: 38% !important;
+  width: clamp(135px, 11vw, 215px) !important;
+  height: auto !important;
+  z-index: 2 !important;
+  opacity: 0.95 !important;
+  pointer-events: none !important;
+  object-fit: contain !important;
+
+  /* Do NOT add !important to transform, otherwise animation may stop */
+  transform: translate(-50%, -50%) rotate(-2deg) scale(1);
+
+  filter:
+    drop-shadow(0 22px 40px rgba(0, 0, 0, 0.28))
+    saturate(1.08);
+
+  animation: studentIconUpLeftFloat 6.4s ease-in-out infinite;
+}
+
+/* Glass card stays clean on the right */
+.stakeholder-students .student-feature-card {
+  position: absolute !important;
+  right: clamp(12px, 1vw, 24px) !important;
+  top: 62% !important;
+  z-index: 4 !important;
+
+  transform: translateY(-50%) !important;
+
+  width: clamp(190px, 16vw, 255px) !important;
+  min-height: clamp(82px, 6.5vw, 108px) !important;
+  padding: clamp(15px, 1.15vw, 20px) !important;
+  border-radius: 18px !important;
+}
+
+.stakeholder-students .student-feature-card strong {
+  font-size: clamp(25px, 1vw, 38px) !important;
+  line-height: 0.95 !important;
+}
+
+.stakeholder-students .student-feature-card span {
+  margin-top: 7px !important;
+  font-size: clamp(10.5px, 0.78vw, 13px) !important;
+  line-height: 1.2 !important;
+}
+
+/* Progress bar */
+.stakeholder-students .student-progress {
+  bottom: 17px !important;
+  z-index: 10 !important;
+}
+
+.stakeholder-students .student-progress-item {
+  width: clamp(58px, 4.4vw, 82px) !important;
+  height: 3px !important;
+}
+
+/* Smooth floating animation */
+@keyframes studentIconUpLeftFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(-2deg) scale(1);
+  }
+
+  35% {
+    transform: translate(-50%, -50%) translate3d(-8px, -10px, 0) rotate(1deg) scale(1.035);
+  }
+
+  65% {
+    transform: translate(-50%, -50%) translate3d(6px, -5px, 0) rotate(-1deg) scale(1.015);
+  }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .stakeholder-students .student-slide {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stakeholder-students .student-3d-icon {
+    left: 36% !important;
+    top: 38% !important;
+    width: clamp(125px, 18vw, 185px) !important;
+  }
+
+  .stakeholder-students .student-feature-card {
+    width: clamp(180px, 27vw, 235px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .stakeholder-students.js-student-slider {
+    min-height: 420px !important;
+  }
+
+  .stakeholder-students .student-slide {
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  .stakeholder-students .student-slide-visual {
+    min-height: 155px !important;
+    margin-top: 12px !important;
+  }
+
+  .stakeholder-students .student-3d-icon {
+    left: 72% !important;
+    top: 34% !important;
+    width: 145px !important;
+    opacity: 0.76 !important;
+  }
+
+  .stakeholder-students .student-feature-card {
+    left: 0 !important;
+    right: auto !important;
+    top: 52% !important;
+    width: 70% !important;
+    min-height: 92px !important;
+  }
+}
+
+/* =========================================
+   ERP Modules - Purple Floating Wave Design
+   Paste at the very bottom of style.css
+========================================= */
+
+.erp-modules-section {
+  position: relative;
+  z-index: 2;
+  padding: 95px 24px 125px !important;
+  background:
+
+    linear-gradient(180deg, #cb75fd 0%, #A300FF 48%, #A300FF 100%) !important;
+  color: #ffffff !important;
+  overflow: hidden;
+}
+
+/* subtle large background glow */
+.erp-modules-section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(900px, 70vw);
+  height: min(520px, 45vw);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.erp-modules-heading {
+  position: relative;
+  z-index: 2;
+  width: min(960px, 92vw) !important;
+  margin: 0 auto 70px !important;
+  text-align: center;
+}
+
+.erp-modules-heading span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px !important;
+    padding: 0 18px !important;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #430071 !important;
+    font-size: 12px !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.erp-modules-heading h2 {
+  margin: 26px 0 18px !important;
+  color: #ffffff !important;
+  font-size: clamp(38px, 4.1vw, 72px) !important;
+  line-height: 1.12 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.erp-modules-heading p {
+  margin: 0 auto !important;
+  max-width: 720px !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: clamp(15px, 1.15vw, 20px) !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+}
+
+/* Floating card stage */
+.erp-modules-grid {
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    width: min(1146px, -120px + 100vw) !important;
+    margin: 0px auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 46px 113px !important;
+    gap: 50px 56px !important;
+}
+
+/* Card shape similar to your reference */
+.erp-module-card {
+  position: relative;
+  min-height: 172px !important;
+  padding: 34px 28px 24px !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  box-shadow:
+    0 26px 55px rgba(34, 0, 68, 0.2),
+    0 8px 18px rgba(34, 0, 68, 0.12) !important;
+  overflow: hidden !important;
+  color: #5b0094 !important;
+  clip-path: polygon(
+    0 0,
+    78% 0,
+    100% 18%,
+    100% 100%,
+    14% 100%,
+    0 86%
+  );
+  animation: erpCardDragonWave 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* small pale design blocks */
+.erp-module-card::before {
+  content: "";
+  position: absolute;
+  right: -28px;
+  bottom: -30px;
+  width: 145px;
+  height: 115px;
+  border-radius: 0 !important;
+  background:
+    linear-gradient(90deg, transparent 0 24px, rgba(99, 0, 154, 0.1) 24px 34px, transparent 34px),
+    linear-gradient(0deg, transparent 0 24px, rgba(99, 0, 154, 0.1) 24px 34px, transparent 34px),
+    rgba(99, 0, 154, 0.08) !important;
+  transform: rotate(0deg) !important;
+  opacity: 1 !important;
+}
+
+.erp-module-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  background:
+    linear-gradient(90deg, rgba(99, 0, 154, 0.12) 0 8px, transparent 8px 15px, rgba(99, 0, 154, 0.1) 15px 22px, transparent 22px),
+    rgba(99, 0, 154, 0.06) !important;
+  border-bottom-right-radius: 20px;
+  opacity: 1 !important;
+}
+
+/* staggered position like mockup */
+.erp-module-card:nth-child(1),
+.erp-module-card:nth-child(3) {
+  transform: translateY(24px);
+}
+
+.erp-module-card:nth-child(2) {
+  transform: translateY(-10px);
+}
+
+.erp-module-card:nth-child(4),
+.erp-module-card:nth-child(6) {
+  transform: translateY(10px);
+}
+
+.erp-module-card:nth-child(5) {
+  transform: translateY(-14px);
+}
+
+/* wave starts from right side, then moves card by card */
+.erp-module-card:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.erp-module-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.erp-module-card:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.erp-module-card:nth-child(6) {
+  animation-delay: 1.5s;
+}
+
+.erp-module-card:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.erp-module-card:nth-child(4) {
+  animation-delay: 2.5s;
+}
+
+.erp-module-card:hover {
+  box-shadow:
+    0 34px 72px rgba(34, 0, 68, 0.28),
+    0 12px 24px rgba(34, 0, 68, 0.14) !important;
+}
+
+/* Hide emoji box for this design, keeping content clean */
+.erp-icon {
+  display: none !important;
+}
+
+.erp-module-card h3 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 8px !important;
+  color: #5b0094 !important;
+  font-size: clamp(18px, 1.35vw, 25px) !important;
+  line-height: 1.12 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.erp-module-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0 !important;
+  max-width: 250px !important;
+  min-height: 42px !important;
+  color: rgba(91, 0, 148, 0.78) !important;
+  font-size: clamp(10px, 0.78vw, 13px) !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+}
+
+.erp-card-actions {
+  position: relative;
+  z-index: 2;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px !important;
+  margin-top: 18px !important;
+}
+
+.erp-btn {
+  min-height: 25px !important;
+  padding: 0 16px !important;
+  border-radius: 2px !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  box-shadow: none !important;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease !important;
+}
+
+.erp-btn.primary {
+  background: #6b00a8 !important;
+  color: #ffffff !important;
+}
+
+.erp-btn.secondary {
+  background: #ffffff !important;
+  color: #6b00a8 !important;
+  border: 1px solid rgba(107, 0, 168, 0.16) !important;
+}
+
+.erp-btn:hover {
+  transform: translateY(-2px) !important;
+}
+
+@keyframes erpCardDragonWave {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+
+  18% {
+    translate: 0 -11px;
+    rotate: -0.4deg;
+  }
+
+  38% {
+    translate: 0 5px;
+    rotate: 0.25deg;
+  }
+
+  58% {
+    translate: 0 -6px;
+    rotate: -0.2deg;
+  }
+
+  78% {
+    translate: 0 3px;
+    rotate: 0.15deg;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .erp-modules-grid {
+    width: min(760px, calc(100vw - 42px)) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 34px !important;
+  }
+
+  .erp-module-card:nth-child(n) {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .erp-modules-section {
+    padding: 76px 18px 90px !important;
+  }
+
+  .erp-modules-heading {
+    margin-bottom: 42px !important;
+  }
+
+  .erp-modules-heading h2 {
+    font-size: 34px !important;
+  }
+
+  .erp-modules-grid {
+    width: min(430px, 100%) !important;
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+
+  .erp-module-card {
+    min-height: 170px !important;
+    padding: 30px 24px 24px !important;
+  }
+
+  .erp-module-card p {
+    max-width: 100% !important;
+  }
+
+  .erp-card-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .erp-module-card {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   ERP Card Buttons - Clean Professional Fix
+   Paste at the very bottom of style.css
+========================================= */
+
+.erp-card-actions {
+  position: relative !important;
+  z-index: 5 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  margin-top: 20px !important;
+  padding-left: 0 !important;
+}
+
+/* Common button style */
+.erp-btn {
+  min-height: 34px !important;
+  height: 34px !important;
+  padding: 0 18px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.01em !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Main button */
+.erp-btn.primary {
+  min-width: 118px !important;
+  background: linear-gradient(135deg, #6b00a8 0%, #7c12c9 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(107, 0, 168, 0.2) !important;
+  box-shadow:
+    0 8px 18px rgba(91, 0, 148, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Secondary button */
+.erp-btn.secondary {
+  min-width: 108px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #6b00a8 !important;
+  border: 1px solid rgba(107, 0, 168, 0.18) !important;
+  box-shadow:
+    0 8px 18px rgba(45, 0, 70, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Hover */
+.erp-btn:hover {
+  transform: translateY(-2px) !important;
+}
+
+.erp-btn.primary:hover {
+  background: linear-gradient(135deg, #57008d 0%, #7a00c5 100%) !important;
+  box-shadow:
+    0 12px 24px rgba(91, 0, 148, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.erp-btn.secondary:hover {
+  background: #ffffff !important;
+  border-color: rgba(107, 0, 168, 0.28) !important;
+}
+
+/* Prevent design blocks from covering the buttons */
+.erp-module-card::before {
+  z-index: 0 !important;
+}
+
+.erp-module-card::after {
+  z-index: 0 !important;
+}
+
+.erp-module-card h3,
+.erp-module-card p,
+.erp-card-actions {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Slightly better button placement inside this special card shape */
+.erp-module-card {
+  padding-bottom: 28px !important;
+}
+
+@media (max-width: 680px) {
+  .erp-card-actions {
+    justify-content: flex-start !important;
+    gap: 9px !important;
+  }
+
+  .erp-btn {
+    height: 32px !important;
+    min-height: 32px !important;
+    padding: 0 15px !important;
+    font-size: 11px !important;
+  }
+
+  .erp-btn.primary {
+    min-width: 106px !important;
+  }
+
+  .erp-btn.secondary {
+    min-width: 96px !important;
+  }
+}
+
+/* =========================================
+   ERP Icons Center + Hover Door Overlay Trial
+   Paste at the very bottom of style.css
+========================================= */
+
+/* Keep card shape same, but allow icon/hover animation */
+.erp-module-card {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden !important;
+}
+
+/* Center the ERP 3D icon inside the card */
+.erp-module-img {
+  position: absolute !important;
+  left: 50% !important;
+  top: 25px !important;
+  right: auto !important;
+  width: clamp(120px, 10vw, 175px) !important;
+  height: auto !important;
+  transform: translateX(-50%) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  object-fit: contain !important;
+  filter:
+    drop-shadow(0 14px 24px rgba(72, 0, 120, 0.14))
+    saturate(1.05);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Give text space below centered icon */
+.erp-module-card h3 {
+  margin-top: 135px !important;
+  max-width: 88% !important;
+}
+
+.erp-module-card p {
+  max-width: 88% !important;
+}
+
+/* Hover icon slight lift */
+.erp-module-card:hover .erp-module-img {
+  transform: translateX(-50%) translateY(-8px) scale(1.04) !important;
+  filter:
+    drop-shadow(0 20px 34px rgba(72, 0, 120, 0.22))
+    saturate(1.12)
+    brightness(1.05);
+}
+
+/* Door overlay panels */
+.erp-module-card .erp-hover-top,
+.erp-module-card .erp-hover-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease;
+}
+
+/* Top door: image/video area */
+.erp-module-card .erp-hover-top {
+  top: 0;
+  height: 48%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,0.28), transparent 34%),
+    linear-gradient(135deg, #7a1fd0 0%, #4d087e 100%);
+  transform: translateY(-105%);
+}
+
+.erp-module-card .erp-hover-top img,
+.erp-module-card .erp-hover-top video {
+  width: 46%;
+  max-height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.2));
+}
+
+/* Bottom door: description area */
+.erp-module-card .erp-hover-bottom {
+  bottom: 0;
+  height: 52%;
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(38, 0, 64, 0.95), rgba(24, 0, 42, 0.98));
+  color: #ffffff;
+  transform: translateY(105%);
+}
+
+.erp-module-card .erp-hover-bottom p {
+  margin: 0 !important;
+  max-width: 100% !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: clamp(14px, 1vw, 18px) !important;
+  line-height: 1.45 !important;
+  font-weight: 600 !important;
+}
+
+/* On hover, doors close into the card */
+.erp-module-card:hover .erp-hover-top,
+.erp-module-card:hover .erp-hover-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slightly hide normal content during hover */
+.erp-module-card:hover > h3,
+.erp-module-card:hover > p,
+.erp-module-card:hover > .erp-card-actions,
+.erp-module-card:hover > .erp-module-img {
+  opacity: 0.12;
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .erp-module-img {
+    top: 22px !important;
+    width: 125px !important;
+  }
+
+  .erp-module-card h3 {
+    margin-top: 125px !important;
+  }
+
+  .erp-module-card .erp-hover-bottom {
+    padding: 22px 24px;
+  }
+}
+
+/* =========================================
+   ERP Hover Door Fix - Keep Buttons Clickable
+   Paste at the very bottom of style.css
+========================================= */
+
+/* Keep card buttons always visible and clickable */
+.erp-card-actions {
+  position: relative !important;
+  z-index: 30 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Do not fade the buttons on card hover */
+.erp-module-card:hover > .erp-card-actions {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Keep normal buttons above the hover overlay */
+.erp-module-card:hover .erp-btn {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Hover overlay should not capture clicks */
+.erp-module-card .erp-hover-top,
+.erp-module-card .erp-hover-bottom {
+  pointer-events: none !important;
+}
+
+/* Top door stays only in upper area */
+.erp-module-card .erp-hover-top {
+  top: 0 !important;
+  height: 42% !important;
+  z-index: 12 !important;
+  transform: translateY(-105%);
+}
+
+/* Bottom door now stops before button area */
+.erp-module-card .erp-hover-bottom {
+  top: 42% !important;
+  bottom: auto !important;
+  height: 34% !important;
+  z-index: 12 !important;
+  padding: 18px 28px !important;
+  transform: translateY(115%);
+}
+
+/* On hover, doors come in but do not cover buttons */
+.erp-module-card:hover .erp-hover-top,
+.erp-module-card:hover .erp-hover-bottom {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Only fade title, paragraph and icon, not buttons */
+.erp-module-card:hover > h3,
+.erp-module-card:hover > p,
+.erp-module-card:hover > .erp-module-img {
+  opacity: 0.12 !important;
+}
+
+/* Keep buttons normal */
+.erp-module-card:hover > .erp-card-actions {
+  opacity: 1 !important;
+}
+
+/* Adjust text in hover description */
+.erp-module-card .erp-hover-bottom p {
+  font-size: clamp(12px, 0.85vw, 15px) !important;
+  line-height: 1.4 !important;
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+
+/* Make sure hover overlay does not visually touch button space */
+.erp-module-card::after {
+  pointer-events: none !important;
+}
+
+/* =========================================
+   Bento Section Full Width Background Fix
+   Paste at the very bottom of style.css
+========================================= */
+
+.nuvo-bento-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 95px 0 120px !important;
+  position: relative;
+  overflow: hidden;
+  background:
+
+    linear-gradient(180deg, #ffffff 0%, #f8ecff 34%, #cb75fd 100%) !important;
+}
+
+/* Keep the actual content centered like before */
+.nuvo-section-heading,
+.nuvo-bento-grid {
+  width: min(1320px, calc(100vw - 110px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Keep heading spacing */
+.nuvo-section-heading {
+  margin-bottom: 42px !important;
+}
+
+/* Optional soft glow behind the bento grid */
+.nuvo-bento-section::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: min(980px, 80vw);
+  height: 520px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 68%);
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nuvo-section-heading,
+.nuvo-bento-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .nuvo-bento-section {
+    padding: 78px 0 96px !important;
+  }
+
+  .nuvo-section-heading,
+  .nuvo-bento-grid {
+    width: min(760px, calc(100vw - 36px)) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .nuvo-bento-section {
+    padding: 66px 0 82px !important;
+  }
+
+  .nuvo-section-heading,
+  .nuvo-bento-grid {
+    width: min(430px, calc(100vw - 28px)) !important;
+  }
+}
+
+/* =========================================
+   Premium Scroll Intro Animations
+   Smooth cubic ease-out reveal
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+:root {
+  --nuvo-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform:
+    translate3d(
+      var(--reveal-x, 0),
+      var(--reveal-y, 42px),
+      0
+    )
+    scale(var(--reveal-scale, 0.975));
+  filter: blur(var(--reveal-blur, 10px));
+  transition:
+    opacity var(--reveal-duration, 920ms) var(--nuvo-ease-out),
+    transform var(--reveal-duration, 920ms) var(--nuvo-ease-out),
+    filter var(--reveal-duration, 920ms) var(--nuvo-ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Variants */
+.reveal-rise {
+  --reveal-y: 46px;
+  --reveal-scale: 0.975;
+}
+
+.reveal-rise-small {
+  --reveal-y: 22px;
+  --reveal-scale: 0.985;
+  --reveal-blur: 7px;
+  --reveal-duration: 780ms;
+}
+
+.reveal-left {
+  --reveal-x: -54px;
+  --reveal-y: 18px;
+  --reveal-scale: 0.98;
+}
+
+.reveal-right {
+  --reveal-x: 54px;
+  --reveal-y: 18px;
+  --reveal-scale: 0.98;
+}
+
+.reveal-scale {
+  --reveal-y: 30px;
+  --reveal-scale: 0.94;
+  --reveal-blur: 12px;
+}
+
+.reveal-card {
+  --reveal-y: 58px;
+  --reveal-scale: 0.955;
+  --reveal-blur: 12px;
+  --reveal-duration: 980ms;
+}
+
+.reveal-pill {
+  --reveal-y: 14px;
+  --reveal-scale: 0.86;
+  --reveal-blur: 6px;
+  --reveal-duration: 720ms;
+}
+
+.reveal-icon {
+  --reveal-y: 28px;
+  --reveal-scale: 0.82;
+  --reveal-blur: 10px;
+  --reveal-duration: 900ms;
+}
+
+/* Special polish after visible */
+.scroll-reveal.is-visible.reveal-card {
+  filter: blur(0) saturate(1.02);
+}
+
+.scroll-reveal.is-visible.reveal-pill {
+  filter: blur(0) saturate(1.08);
+}
+
+/* Page-load navbar intro */
+.navbar {
+  animation: nuvoNavIntro 950ms var(--nuvo-ease-out) 120ms both;
+}
+
+.nav-links a,
+.nav-actions a {
+  opacity: 0;
+  animation: nuvoNavItemIntro 780ms var(--nuvo-ease-out) both;
+}
+
+.nav-links a:nth-child(1) { animation-delay: 260ms; }
+.nav-links a:nth-child(2) { animation-delay: 320ms; }
+.nav-links a:nth-child(3) { animation-delay: 380ms; }
+.nav-links a:nth-child(4) { animation-delay: 440ms; }
+.nav-links a:nth-child(5) { animation-delay: 500ms; }
+
+.nav-actions a:nth-child(1) { animation-delay: 560ms; }
+.nav-actions a:nth-child(2) { animation-delay: 620ms; }
+
+@keyframes nuvoNavIntro {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes nuvoNavItemIntro {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+    filter: blur(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Make bento cards feel more premium when they enter */
+.nuvo-bento-card.scroll-reveal.is-visible {
+  box-shadow:
+    0 28px 70px rgba(54, 0, 110, 0.12),
+    0 10px 28px rgba(54, 0, 110, 0.08);
+}
+
+/* Do not disturb ERP card shape/wave.
+   We animate only ERP inner content from JS, not the card itself. */
+.erp-module-card > h3.scroll-reveal,
+.erp-module-card > p.scroll-reveal,
+.erp-module-card > .erp-card-actions.scroll-reveal,
+.erp-module-card > .erp-module-img.scroll-reveal {
+  position: relative;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .navbar,
+  .nav-links a,
+  .nav-actions a {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================
+   Hero Statement / Rank Section
+   Between hero and count-up stats
+========================================= */
+
+.next-section > .nuvo-rank-statement {
+  position: relative;
+  z-index: 35;
+  width: min(1180px, calc(100vw - 110px)) !important;
+  margin: -18px auto 58px !important;
+  text-align: center;
+}
+
+.nuvo-rank-statement span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: rgba(103, 0, 165, 0.09);
+  color: #6700a5;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.nuvo-rank-statement h2 {
+  margin: 0 auto 22px !important;
+  max-width: 1040px;
+  color: #220031;
+  font-size: clamp(42px, 5vw, 86px) !important;
+  line-height: 1.03 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.nuvo-rank-statement p {
+  margin: 0 auto;
+  max-width: 880px;
+  color: rgba(34, 0, 49, 0.72);
+  font-size: clamp(17px, 1.25vw, 23px);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+/* Soft premium highlight behind statement */
+.nuvo-rank-statement::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(780px, 80vw);
+  height: 220px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(176, 41, 236, 0.12), transparent 68%);
+  filter: blur(22px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Slightly adjust stats so statement has breathing space */
+.next-section > .stats-panel {
+  margin-top: 0 !important;
+}
+
+/* Fallback intro animation even if scroll-reveal JS is not active */
+.nuvo-rank-statement {
+  animation: nuvoRankIntro 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes nuvoRankIntro {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(0.975);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 860px) {
+  .next-section > .nuvo-rank-statement {
+    width: min(720px, calc(100vw - 36px)) !important;
+    margin: -8px auto 42px !important;
+  }
+
+  .nuvo-rank-statement h2 {
+    font-size: clamp(34px, 7vw, 56px) !important;
+  }
+
+  .nuvo-rank-statement p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 520px) {
+  .next-section > .nuvo-rank-statement {
+    width: min(420px, calc(100vw - 28px)) !important;
+    margin: 0 auto 34px !important;
+  }
+
+  .nuvo-rank-statement span {
+    font-size: 10px;
+    min-height: 30px;
+    padding: 0 14px;
+    margin-bottom: 18px;
+  }
+
+  .nuvo-rank-statement h2 {
+    font-size: 34px !important;
+    line-height: 1.08 !important;
+  }
+
+  .nuvo-rank-statement p {
+    font-size: 15.5px;
+  }
+}
+
+/* =========================================
+   Contact / Demo Request Section
+   Purple to Blue continuation
+========================================= */
+
+.contact-demo-section {
+  position: relative;
+  z-index: 2;
+  padding: 120px 24px 130px;
+  color: #07213d;
+  background:
+    linear-gradient(
+      180deg,
+      #a300ff 0%,
+      #6f47ff 34%,
+      #0089ff 72%,
+      #f7fbff 100%
+    );
+  overflow: hidden;
+}
+
+.contact-demo-shell {
+  width: min(1420px, calc(100vw - 120px));
+  margin: 0 auto;
+}
+
+.contact-demo-heading {
+  max-width: 900px;
+  margin: 0 auto 58px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contact-demo-heading span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #006fd4;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.contact-demo-heading h2 {
+  margin: 0 0 18px;
+  font-size: clamp(40px, 4.4vw, 78px);
+  line-height: 1.04;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.contact-demo-heading p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(16px, 1.2vw, 21px);
+  line-height: 1.65;
+  font-weight: 550;
+}
+
+.contact-demo-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.contact-info-card,
+.contact-form-card {
+  position: relative;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow:
+    0 34px 80px rgba(0, 44, 120, 0.2),
+    0 12px 28px rgba(0, 44, 120, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.contact-info-card {
+  padding: clamp(34px, 3vw, 56px);
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(163, 0, 255, 0.08), transparent 42%),
+    linear-gradient(315deg, rgba(0, 137, 255, 0.12), transparent 46%);
+  pointer-events: none;
+}
+
+.contact-kicker {
+  position: relative;
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: rgba(0, 137, 255, 0.1);
+  color: #006fd4;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.contact-info-card h3 {
+  position: relative;
+  margin: 0 0 18px;
+  max-width: 560px;
+  color: #071f3a;
+  font-size: clamp(28px, 2.4vw, 48px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+}
+
+.contact-info-card > p {
+  position: relative;
+  margin: 0 0 34px;
+  color: rgba(7, 31, 58, 0.72);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.75;
+  font-weight: 560;
+}
+
+.contact-info-list {
+  position: relative;
+  display: grid;
+  gap: 14px;
+}
+
+.contact-info-list a,
+.contact-info-list div {
+  display: block;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(0, 137, 255, 0.12);
+  color: #071f3a;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-info-list a:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: rgba(0, 137, 255, 0.28);
+}
+
+.contact-info-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #006fd4;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.contact-info-list span {
+  display: block;
+  color: rgba(7, 31, 58, 0.72);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.contact-form-card {
+  padding: clamp(30px, 3vw, 52px);
+}
+
+.lead-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.lead-form input,
+.lead-form select,
+.lead-form textarea {
+  width: 100%;
+  min-height: 62px;
+  border: 1px solid rgba(0, 90, 170, 0.12);
+  border-radius: 18px;
+  outline: none;
+  background: rgba(246, 250, 255, 0.92);
+  color: #071f3a;
+  padding: 0 20px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 650;
+  transition:
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease,
+    transform 0.28s ease;
+}
+
+.lead-form textarea {
+  min-height: 170px;
+  resize: vertical;
+  padding-top: 18px;
+  line-height: 1.6;
+}
+
+.lead-form input::placeholder,
+.lead-form textarea::placeholder {
+  color: rgba(7, 31, 58, 0.42);
+}
+
+.lead-form select {
+  color: rgba(7, 31, 58, 0.62);
+  cursor: pointer;
+}
+
+.lead-form input:focus,
+.lead-form select:focus,
+.lead-form textarea:focus {
+  border-color: rgba(0, 137, 255, 0.58);
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 137, 255, 0.13);
+  transform: translateY(-2px);
+}
+
+.contact-submit-btn {
+  min-height: 62px;
+  width: fit-content;
+  min-width: 250px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #0089ff 0%, #005ed8 100%);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow:
+    0 18px 38px rgba(0, 108, 220, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-submit-btn span {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 24px 48px rgba(0, 108, 220, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.contact-submit-btn:hover span {
+  transform: translateX(5px);
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .contact-demo-section {
+    padding: 94px 20px 105px;
+  }
+
+  .contact-demo-shell {
+    width: min(760px, calc(100vw - 40px));
+  }
+
+  .contact-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .contact-demo-section {
+    padding: 78px 16px 88px;
+  }
+
+  .contact-demo-shell {
+    width: min(430px, 100%);
+  }
+
+  .contact-demo-heading {
+    margin-bottom: 38px;
+  }
+
+  .contact-demo-heading h2 {
+    font-size: 34px;
+  }
+
+  .contact-demo-heading p {
+    font-size: 15.5px;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    border-radius: 24px;
+  }
+
+  .contact-info-card {
+    padding: 28px 22px;
+  }
+
+  .contact-info-card h3 {
+    font-size: 28px;
+  }
+
+  .contact-form-card {
+    padding: 22px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .lead-form {
+    gap: 14px;
+  }
+
+  .lead-form input,
+  .lead-form select,
+  .lead-form textarea {
+    min-height: 56px;
+    border-radius: 15px;
+  }
+
+  .lead-form textarea {
+    min-height: 140px;
+  }
+
+  .contact-submit-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================
+   Testimonials Section - SchoolMate Nuvo
+   White + Blue continuation
+========================================= */
+
+.nuvo-testimonials-section {
+  position: relative;
+  z-index: 2;
+  padding: 120px 24px 130px;
+  color: #071f3a;
+  background:
+    linear-gradient(
+      180deg,
+      #f7fbff 0%,
+      #ffffff 28%,
+      #ffffff 100%
+    );
+  overflow: hidden;
+}
+
+.nuvo-testimonials-shell {
+  width: min(1380px, calc(100vw - 120px));
+  margin: 0 auto;
+}
+
+.nuvo-testimonial-head {
+  max-width: 900px;
+  margin: 0 auto 62px;
+  text-align: center;
+}
+
+.nuvo-testimonial-head span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: rgba(0, 137, 255, 0.1);
+  color: #0077df;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nuvo-testimonial-head h2 {
+  margin: 0 0 18px;
+  color: #071f3a;
+  font-size: clamp(40px, 4.6vw, 82px);
+  line-height: 1.04;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.nuvo-testimonial-head h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #0089ff 0%, #8a20df 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nuvo-testimonial-head p {
+  margin: 0 auto;
+  max-width: 760px;
+  color: rgba(7, 31, 58, 0.66);
+  font-size: clamp(16px, 1.15vw, 21px);
+  line-height: 1.65;
+  font-weight: 580;
+}
+
+.nuvo-testimonial-layout {
+  display: grid;
+  grid-template-columns: 0.92fr 1.18fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.nuvo-video-review,
+.nuvo-testimonial-card {
+  border-radius: 34px;
+  box-shadow:
+    0 32px 80px rgba(0, 52, 120, 0.12),
+    0 10px 26px rgba(0, 52, 120, 0.07);
+}
+
+.nuvo-video-review {
+  position: relative;
+  min-height: 440px;
+  padding: 34px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 82% 22%, rgba(163, 0, 255, 0.22), transparent 30%),
+    linear-gradient(135deg, #0089ff 0%, #0060d8 48%, #30006a 100%);
+}
+
+.nuvo-video-review::before {
+  content: "";
+  position: absolute;
+  right: -95px;
+  top: -90px;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  filter: blur(4px);
+}
+
+.nuvo-video-review::after {
+  content: "";
+  position: absolute;
+  left: -120px;
+  bottom: -130px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(163, 0, 255, 0.22);
+  filter: blur(18px);
+}
+
+.video-glass-layer {
+  position: absolute;
+  inset: 18px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.03)
+    );
+  pointer-events: none;
+}
+
+.video-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.testimonial-play-btn {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.testimonial-play-btn svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+}
+
+.nuvo-video-review:hover .testimonial-play-btn {
+  transform: scale(1.08);
+  background: #ffffff;
+  color: #0089ff;
+}
+
+.video-text span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.video-text h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(28px, 2.4vw, 46px);
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+}
+
+.video-text p {
+  margin: 0;
+  max-width: 520px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.6;
+  font-weight: 560;
+}
+
+.nuvo-testimonial-card {
+  min-height: 440px;
+  padding: clamp(34px, 3vw, 54px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(247, 251, 255, 0.96));
+  border: 1px solid rgba(0, 137, 255, 0.1);
+}
+
+.quote-mark {
+  height: 52px;
+  color: #0089ff;
+  font-family: Georgia, serif;
+  font-size: 94px;
+  line-height: 0.85;
+  opacity: 0.18;
+  margin-bottom: 8px;
+}
+
+.testimonial-text {
+  margin: 0 0 18px;
+  color: #071f3a;
+  font-size: clamp(24px, 1.8vw, 34px);
+  line-height: 1.52;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+}
+
+.read-more {
+  display: inline-flex;
+  color: #0077df;
+  font-size: 15px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(7, 31, 58, 0.09);
+}
+
+.reviewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.reviewer-avatar {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #0089ff;
+  background: rgba(0, 137, 255, 0.1);
+  border: 1px solid rgba(0, 137, 255, 0.16);
+}
+
+.reviewer-avatar svg {
+  width: 27px;
+  height: 27px;
+}
+
+.reviewer-info strong {
+  display: block;
+  color: #071f3a;
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.reviewer-info span {
+  display: block;
+  margin-top: 3px;
+  color: rgba(7, 31, 58, 0.6);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 137, 255, 0.16);
+  background: #ffffff;
+  color: #071f3a;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 52, 120, 0.08);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.circle-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.circle-btn:hover {
+  transform: translateY(-3px);
+  background: #0089ff;
+  color: #ffffff;
+  border-color: #0089ff;
+}
+
+/* testimonial switch animation */
+.nuvo-testimonial-card.is-switching .testimonial-text,
+.nuvo-testimonial-card.is-switching .reviewer-info {
+  animation: testimonialTextSwitch 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes testimonialTextSwitch {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .nuvo-testimonials-section {
+    padding: 92px 20px 105px;
+  }
+
+  .nuvo-testimonials-shell {
+    width: min(780px, calc(100vw - 40px));
+  }
+
+  .nuvo-testimonial-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .nuvo-video-review,
+  .nuvo-testimonial-card {
+    min-height: 360px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .nuvo-testimonials-section {
+    padding: 76px 16px 86px;
+  }
+
+  .nuvo-testimonials-shell {
+    width: min(430px, 100%);
+  }
+
+  .nuvo-testimonial-head {
+    margin-bottom: 38px;
+  }
+
+  .nuvo-testimonial-head h2 {
+    font-size: 34px;
+  }
+
+  .nuvo-testimonial-head p {
+    font-size: 15.5px;
+  }
+
+  .nuvo-video-review,
+  .nuvo-testimonial-card {
+    border-radius: 24px;
+    min-height: auto;
+  }
+
+  .nuvo-video-review {
+    padding: 28px 24px;
+    min-height: 340px;
+  }
+
+  .testimonial-play-btn {
+    width: 62px;
+    height: 62px;
+  }
+
+  .nuvo-testimonial-card {
+    padding: 28px 22px;
+  }
+
+  .testimonial-text {
+    font-size: 21px;
+  }
+
+  .reviewer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   Brochure Badge + Flipbook Modal
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+/* Add this class to the blue CTA box */
+.brochure-anchor {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Floating badge on top-left of CTA */
+.brochure-badge {
+  position: absolute;
+  left: clamp(22px, 3vw, 48px);
+  top: -34px;
+  z-index: 20;
+  width: 178px;
+  min-height: 72px;
+  border: 0;
+  border-radius: 24px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  color: #071f3a;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.95), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #e9f5ff 45%, #dcecff 100%);
+  box-shadow:
+    0 22px 48px rgba(0, 45, 110, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  display: grid;
+  gap: 2px;
+  isolation: isolate;
+  overflow: hidden;
+  animation: brochureBadgeFloat 4.8s ease-in-out infinite;
+  transition:
+    transform 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.34s ease;
+}
+
+.brochure-badge strong {
+  position: relative;
+  z-index: 2;
+  font-size: 18px;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.brochure-badge small {
+  position: relative;
+  z-index: 2;
+  color: rgba(7, 31, 58, 0.62);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.brochure-badge b {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0089ff 0%, #a300ff 100%);
+  font-size: 15px;
+}
+
+.badge-shine {
+  position: absolute;
+  inset: -60%;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.72) 50%,
+    transparent 65%
+  );
+  transform: translateX(-45%) rotate(10deg);
+  animation: brochureBadgeShine 3.2s ease-in-out infinite;
+}
+
+.brochure-badge:hover {
+  transform: translateY(-8px) rotate(-1deg) scale(1.035);
+  box-shadow:
+    0 30px 64px rgba(0, 45, 110, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+@keyframes brochureBadgeFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes brochureBadgeShine {
+  0%, 46% {
+    transform: translateX(-58%) rotate(10deg);
+    opacity: 0;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(58%) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* Modal */
+.brochure-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.34s ease,
+    visibility 0.34s ease;
+}
+
+.brochure-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.brochure-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0, 137, 255, 0.22), transparent 34%),
+    rgba(4, 0, 18, 0.76);
+  backdrop-filter: blur(18px);
+}
+
+.brochure-modal-card {
+  position: relative;
+  z-index: 2;
+  width: min(1040px, 64vw);
+  max-height: min(92vh, 920px);
+  border-radius: 34px;
+  padding: clamp(22px, 2.4vw, 34px);
+  background:
+    radial-gradient(circle at 22% 10%, rgba(255, 255, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 255, 0.95));
+  box-shadow:
+    0 42px 120px rgba(0, 0, 0, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transform: translateY(26px) scale(0.96);
+  transition:
+    transform 0.54s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.34s ease;
+}
+
+.brochure-modal.is-open .brochure-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.brochure-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(7, 31, 58, 0.08);
+  color: #071f3a;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.brochure-close-btn:hover {
+  transform: rotate(90deg);
+  background: rgba(0, 137, 255, 0.14);
+}
+
+.brochure-modal-head {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #071f3a;
+}
+
+.brochure-modal-head span {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: rgba(0, 137, 255, 0.1);
+  color: #0077df;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.brochure-modal-head h3 {
+  margin: 0;
+  color: #071f3a;
+  font-size: clamp(26px, 2.6vw, 44px);
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+}
+
+/* Flipbook */
+.flipbook-viewer {
+  display: grid;
+  grid-template-columns: 58px 1fr 58px;
+  align-items: center;
+  gap: 18px;
+}
+
+.flipbook-book {
+  position: relative;
+  width: min(620px, 62vw);
+  margin: 0 auto;
+  perspective: 1400px;
+}
+
+.flipbook-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2380 / 3368;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow:
+    0 28px 70px rgba(7, 31, 58, 0.2),
+    0 8px 18px rgba(7, 31, 58, 0.08);
+  transform-origin: left center;
+}
+
+.flipbook-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+  user-select: none;
+  pointer-events: none;
+}
+
+.flipbook-book.is-flipping .flipbook-page {
+  animation: flipbookPageTurn 0.58s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes flipbookPageTurn {
+  0% {
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  48% {
+    transform: rotateY(-22deg) translateX(-10px);
+    filter: blur(5px);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: rotateY(0deg) translateX(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.flipbook-nav {
+  width: 54px;
+  height: 54px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0089ff 0%, #a300ff 100%);
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1;
+  box-shadow: 0 18px 42px rgba(0, 78, 170, 0.24);
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s ease;
+}
+
+.flipbook-nav:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 24px 56px rgba(0, 78, 170, 0.32);
+}
+
+.brochure-modal-footer {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brochure-count {
+  height: 40px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 999px;
+  background: rgba(7, 31, 58, 0.06);
+  color: #071f3a;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.brochure-count b {
+  width: 46px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0089ff, #a300ff);
+}
+
+.brochure-download-btn {
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0089ff 0%, #005ed8 100%);
+  font-size: 14px;
+  font-weight: 950;
+  box-shadow: 0 18px 40px rgba(0, 108, 220, 0.26);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.brochure-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 52px rgba(0, 108, 220, 0.34);
+}
+
+.brochure-download-btn span {
+  font-size: 20px;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .brochure-badge {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 0 22px;
+    width: 100%;
+    max-width: 230px;
+  }
+
+  .brochure-modal {
+    padding: 16px;
+  }
+
+  .brochure-modal-card {
+    border-radius: 24px;
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .flipbook-viewer {
+    grid-template-columns: 44px 1fr 44px;
+    gap: 8px;
+  }
+
+  .flipbook-book {
+    width: min(330px, 68vw);
+  }
+
+  .flipbook-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 30px;
+  }
+
+  .brochure-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brochure-download-btn {
+    justify-content: center;
+  }
+}
+
+.final-cta-section {
+  position: relative;
+  z-index: 2;
+  padding: 90px 24px 120px;
+  background: #f7fbff;
+}
+
+.final-cta-card {
+  position: relative;
+  width: min(1420px, calc(100vw - 110px));
+  margin: 0 auto;
+  min-height: 330px;
+  padding: clamp(46px, 5vw, 82px);
+  border-radius: 42px;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 36px;
+  background:
+    linear-gradient(135deg, #062044 0%, #005ac8 56%, #0089ff 100%);
+  box-shadow: 0 34px 90px rgba(0, 70, 150, 0.22);
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.final-cta-content h2 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: clamp(38px, 4vw, 72px);
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.final-cta-content p {
+  margin: 0;
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(17px, 1.2vw, 22px);
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.final-cta-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.final-cta-btn {
+  min-height: 58px;
+  padding: 0 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.final-cta-btn.primary {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.final-cta-btn.secondary {
+  color: #071f3a;
+  background: #ffffff;
+}
+
+.final-cta-bg-word {
+  position: absolute;
+  right: 42px;
+  bottom: -10px;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: clamp(90px, 13vw, 240px);
+  line-height: 0.8;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .final-cta-card {
+    width: min(720px, calc(100vw - 36px));
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .final-cta-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .final-cta-card {
+    padding: 74px 24px 34px;
+    border-radius: 28px;
+  }
+
+  .final-cta-actions {
+    flex-direction: column;
+  }
+
+  .final-cta-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   Move Brochure Badge to Right Side
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.brochure-badge {
+  left: auto !important;
+  right: clamp(22px, 3vw, 48px) !important;
+  top: -34px !important;
+}
+
+/* Keep badge nice on mobile */
+@media (max-width: 760px) {
+  .brochure-badge {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    margin: 0 0 22px auto !important;
+  }
+}
+
+/* =========================================
+   Brochure Modal Inside Screen + Scrollable
+   Keeps original brochure ratio
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+/* Modal should never go outside screen */
+.brochure-modal-card {
+  width: min(1040px, 94vw) !important;
+  height: min(92vh, 920px) !important;
+  max-height: 92vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Header and footer stay fixed inside modal */
+.brochure-modal-head {
+  flex: 0 0 auto !important;
+}
+
+.brochure-modal-footer {
+  flex: 0 0 auto !important;
+}
+
+/* Middle preview area becomes scrollable */
+.flipbook-viewer {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 10px 6px 18px !important;
+  align-items: start !important;
+}
+
+/* Keep brochure ratio exactly */
+.flipbook-book {
+  width: min(620px, 64vw) !important;
+  margin: 0 auto !important;
+}
+
+.flipbook-page {
+  width: 100% !important;
+  aspect-ratio: 2380 / 3368 !important;
+  height: auto !important;
+}
+
+.flipbook-page img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+}
+
+/* Keep arrows visible while scrolling */
+.flipbook-nav {
+  position: sticky !important;
+  top: 45% !important;
+  z-index: 5 !important;
+}
+
+/* Clean scrollbar */
+.flipbook-viewer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.flipbook-viewer::-webkit-scrollbar-track {
+  background: rgba(7, 31, 58, 0.06);
+  border-radius: 999px;
+}
+
+.flipbook-viewer::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0089ff, #a300ff);
+  border-radius: 999px;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .brochure-modal-card {
+    height: 94vh !important;
+    max-height: 94vh !important;
+  }
+
+  .flipbook-viewer {
+    grid-template-columns: 38px 1fr 38px !important;
+    gap: 6px !important;
+  }
+
+  .flipbook-book {
+    width: min(330px, 72vw) !important;
+  }
+
+  .flipbook-nav {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 28px !important;
+  }
+}
+
+/* =========================================
+   Brochure Badge With Preview Thumbnail
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.final-cta-card,
+.brochure-anchor {
+  overflow: visible !important;
+}
+
+/* Main badge holder */
+.brochure-badge.brochure-badge-preview {
+  position: absolute !important;
+  right: clamp(24px, 4vw, 64px) !important;
+  top: -112px !important;
+  left: auto !important;
+
+  width: 178px !important;
+  height: 154px !important;
+  min-height: 154px !important;
+
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  cursor: pointer !important;
+  z-index: 40 !important;
+  overflow: visible !important;
+
+  display: block !important;
+  animation: brochureBadgeFloatPreview 4.8s ease-in-out infinite;
+}
+
+/* Top image preview */
+.badge-preview-img {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 132px;
+  height: 92px;
+  border-radius: 14px 14px 10px 10px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow:
+    0 18px 36px rgba(0, 38, 95, 0.18),
+    0 5px 12px rgba(0, 38, 95, 0.1);
+  transform: rotate(1.5deg);
+  transition:
+    transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.36s ease;
+}
+
+.badge-preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Bottom label card */
+.brochure-badge .badge-info {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 166px;
+  min-height: 68px;
+  padding: 13px 52px 12px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 20px 44px rgba(0, 38, 95, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  text-align: left;
+  display: block;
+}
+
+.brochure-badge .badge-info strong {
+  display: block;
+  color: #071f3a;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+}
+
+.brochure-badge .badge-info small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(7, 31, 58, 0.62);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 850;
+}
+
+/* Arrow button */
+.brochure-badge.brochure-badge-preview b {
+  position: absolute !important;
+  right: 10px !important;
+  bottom: 18px !important;
+  top: auto !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0089ff 0%, #7938ff 100%) !important;
+  font-size: 15px !important;
+  font-weight: 950 !important;
+  box-shadow: 0 12px 26px rgba(0, 95, 220, 0.26);
+  transition:
+    transform 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.34s ease;
+}
+
+/* Shine */
+.brochure-badge.brochure-badge-preview .badge-shine {
+  position: absolute !important;
+  inset: 50px -30px -20px -30px !important;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.72) 50%,
+    transparent 65%
+  ) !important;
+  transform: translateX(-70%) rotate(10deg);
+  opacity: 0;
+  pointer-events: none;
+  animation: brochureBadgeShinePreview 3.4s ease-in-out infinite;
+}
+
+/* Hover feel */
+.brochure-badge.brochure-badge-preview:hover .badge-preview-img {
+  transform: translateY(-7px) rotate(-1deg) scale(1.035);
+  box-shadow:
+    0 26px 52px rgba(0, 38, 95, 0.24),
+    0 8px 16px rgba(0, 38, 95, 0.12);
+}
+
+.brochure-badge.brochure-badge-preview:hover b {
+  transform: rotate(12deg) scale(1.08);
+  box-shadow: 0 16px 34px rgba(0, 95, 220, 0.34);
+}
+
+@keyframes brochureBadgeFloatPreview {
+  0%, 100% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes brochureBadgeShinePreview {
+  0%, 48% {
+    transform: translateX(-70%) rotate(10deg);
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(70%) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .brochure-badge.brochure-badge-preview {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    margin: -10px 0 26px auto !important;
+    width: 172px !important;
+    height: 148px !important;
+    min-height: 148px !important;
+  }
+
+  .badge-preview-img {
+    width: 126px;
+    height: 88px;
+  }
+
+  .brochure-badge .badge-info {
+    width: 160px;
+  }
+}
+
+/* =========================================
+   Brochure Badge Shine Fix
+   Clean clipped shine only inside white label
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+/* Disable the old shine span because it leaks outside */
+.brochure-badge.brochure-badge-preview > .badge-shine {
+  display: none !important;
+}
+
+/* Make the bottom white card clip its own shine */
+.brochure-badge.brochure-badge-preview .badge-info {
+  position: absolute !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+/* Keep text above shine */
+.brochure-badge.brochure-badge-preview .badge-info strong,
+.brochure-badge.brochure-badge-preview .badge-info small {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Controlled shine inside only the white label */
+.brochure-badge.brochure-badge-preview .badge-info::after {
+  content: "";
+  position: absolute;
+  top: -45%;
+  left: -80%;
+  z-index: 2;
+  width: 55%;
+  height: 190%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 22%,
+    rgba(255, 255, 255, 0.82) 50%,
+    rgba(255, 255, 255, 0.05) 78%,
+    transparent 100%
+  );
+
+  transform: rotate(16deg);
+  opacity: 0;
+  filter: blur(0.2px);
+  animation: brochureLabelShine 4.2s ease-in-out infinite;
+}
+
+/* Optional soft shine on image thumbnail */
+.brochure-badge.brochure-badge-preview .badge-preview-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 12%,
+    rgba(255, 255, 255, 0.38) 42%,
+    transparent 68%
+  );
+
+  transform: translateX(-120%);
+  opacity: 0;
+  animation: brochureImageShine 5.4s ease-in-out infinite;
+}
+
+/* Label shine animation */
+@keyframes brochureLabelShine {
+  0%,
+  45% {
+    left: -80%;
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 0.9;
+  }
+
+  72% {
+    left: 128%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 128%;
+    opacity: 0;
+  }
+}
+
+/* Image shine animation */
+@keyframes brochureImageShine {
+  0%,
+  52% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+
+  62% {
+    opacity: 0.55;
+  }
+
+  78% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   Flipbook Arrow Center Alignment Fix
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.flipbook-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: 0 !important; /* hides the original › / ‹ baseline issue */
+}
+
+/* Recreate arrows as perfectly centered pseudo elements */
+.flipbook-prev::before,
+.flipbook-next::before {
+  display: block;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 700;
+  transform: translateY(-2px);
+}
+
+.flipbook-prev::before {
+  content: "‹";
+}
+
+.flipbook-next::before {
+  content: "›";
+}
+
+/* Fine tune next arrow only */
+.flipbook-next::before {
+  transform: translateY(-2px) translateX(1px);
+}
+
+/* Fine tune previous arrow only */
+.flipbook-prev::before {
+  transform: translateY(-2px) translateX(-1px);
+}
+
+/* =========================================
+   SchoolMate Nuvo Footer
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.nuvo-footer {
+  position: relative;
+  z-index: 2;
+  padding: 90px 24px 34px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(0, 137, 255, 0.28), transparent 32%),
+    radial-gradient(circle at 86% 10%, rgba(163, 0, 255, 0.26), transparent 34%),
+    linear-gradient(135deg, #090014 0%, #17002b 42%, #062044 100%);
+  overflow: hidden;
+}
+
+.nuvo-footer::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: -160px;
+  height: 260px;
+  background: #ffffff;
+  border-radius: 0 0 50% 50%;
+  opacity: 0.98;
+  pointer-events: none;
+}
+
+.nuvo-footer::after {
+  content: "NUVO";
+  position: absolute;
+  right: -20px;
+  bottom: 18px;
+  color: rgba(255, 255, 255, 0.045);
+  font-size: clamp(110px, 18vw, 320px);
+  line-height: 0.75;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+
+.nuvo-footer-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1360px, calc(100vw - 110px));
+  margin: 0 auto;
+}
+
+.nuvo-footer-grid {
+  display: grid;
+  grid-template-columns: 1.55fr repeat(4, 1fr);
+  gap: clamp(28px, 4vw, 70px);
+  padding-bottom: 54px;
+}
+
+.nuvo-footer-about {
+  max-width: 420px;
+}
+
+.nuvo-footer-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.nuvo-footer-brand img {
+  width: 220px;
+  height: auto;
+  filter: drop-shadow(0 16px 34px rgba(255, 255, 255, 0.1));
+}
+
+.nuvo-footer-brand span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.nuvo-footer-about p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15.5px;
+  line-height: 1.75;
+  font-weight: 550;
+}
+
+.nuvo-footer-col h4 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.nuvo-footer-col a {
+  display: table;
+  margin: 0 0 13px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  font-weight: 650;
+  transition:
+    color 0.28s ease,
+    transform 0.28s ease;
+}
+
+.nuvo-footer-col a:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.nuvo-footer-bottom {
+  position: relative;
+  z-index: 2;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+@media (max-width: 1040px) {
+  .nuvo-footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nuvo-footer {
+    padding: 74px 20px 30px;
+  }
+
+  .nuvo-footer-inner {
+    width: min(520px, calc(100vw - 36px));
+  }
+
+  .nuvo-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px 28px;
+  }
+
+  .nuvo-footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .nuvo-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .nuvo-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nuvo-footer-brand img {
+    width: 190px;
+  }
+}
+
+/* =========================================
+   Footer Arc Lift Fix
+   Move white arc upward so footer links are visible
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.nuvo-footer::before {
+  top: -250px !important;
+  height: 270px !important;
+  left: -10% !important;
+  right: -10% !important;
+  border-radius: 0 0 50% 50% !important;
+}
+
+/* Give footer content a little breathing space */
+.nuvo-footer {
+  padding-top: 105px !important;
+}
+
+/* Make sure footer content always stays above the arc */
+.nuvo-footer-inner {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Optional: make footer links stronger and more readable */
+.nuvo-footer-col h4 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.nuvo-footer-col a,
+.nuvo-footer-about p,
+.nuvo-footer-brand span {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.nuvo-footer-col a:hover {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   Footer Arc Same Height, Better Position
+   Keeps arc height same, moves curve upward
+========================================= */
+
+.nuvo-footer {
+  padding-top: 128px !important;
+}
+
+/* Keep the arc height similar, only move it upward */
+.nuvo-footer::before {
+  top: -180px !important;
+  height: 260px !important;
+  left: -8% !important;
+  right: -8% !important;
+  border-radius: 0 0 50% 50% !important;
+}
+
+/* Keep footer links safely above background layers */
+.nuvo-footer-inner {
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+/* Make footer columns clearly visible */
+.nuvo-footer-grid {
+  position: relative !important;
+  z-index: 7 !important;
+  padding-top: 12px !important;
+}
+
+/* =========================================
+   ERP Hover Top Image - Square Fill + Vertical Loop
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+/* Top hover area */
+.erp-module-card .erp-hover-top {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 58% !important;
+  overflow: hidden !important;
+  z-index: 8 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #f4e9ff 45%, #ead9ff 100%) !important;
+}
+
+/* Image / video should fill like a square artwork */
+.erp-module-card .erp-hover-top img,
+.erp-module-card .erp-hover-top video {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 124% !important;
+  max-width: none !important;
+
+  object-fit: cover !important;
+  object-position: center top !important;
+
+  transform: translateY(0) scale(1.04);
+  opacity: 1 !important;
+  filter: saturate(1.04) contrast(1.02);
+
+  animation: erpHoverImageVerticalScan 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Pause normal movement until hover if you want cleaner card state */
+.erp-module-card:not(:hover) .erp-hover-top img,
+.erp-module-card:not(:hover) .erp-hover-top video {
+  animation-play-state: paused;
+}
+
+/* On hover, start visible top-to-bottom movement */
+.erp-module-card:hover .erp-hover-top img,
+.erp-module-card:hover .erp-hover-top video {
+  animation-play-state: running;
+}
+
+/* Smooth up-down loop */
+@keyframes erpHoverImageVerticalScan {
+  0% {
+    transform: translateY(0%) scale(1.04);
+  }
+
+  42% {
+    transform: translateY(-30%) scale(1.04);
+  }
+
+  58% {
+    transform: translateY(-30%) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(0%) scale(1.04);
+  }
+}
+
+/* Keep hover description below the image area */
+.erp-module-card .erp-hover-bottom {
+  z-index: 9 !important;
+}
+
+/* Mobile: slightly smaller top area */
+@media (max-width: 760px) {
+  .erp-module-card .erp-hover-top {
+    height: 54% !important;
+  }
+
+  .erp-module-card .erp-hover-top img,
+  .erp-module-card .erp-hover-top video {
+    min-height: 116% !important;
+  }
+}
+
+/* =========================================
+   Final CTA Background Only
+   Keeps existing footer/CTA size unchanged
+   Paste at the VERY BOTTOM of style.css
+========================================= */
+
+.final-cta-card {
+  /* Do not set width, height, min-height, padding here */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 18, 54, 0.92) 0%,
+      rgba(0, 76, 180, 0.78) 44%,
+      rgba(83, 35, 198, 0.66) 76%,
+      rgba(163, 0, 255, 0.48) 100%
+    ),
+    url("assets/brochuremodalfooterbg.png") !important;
+
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Keep the existing content above the background */
+.final-cta-content,
+.final-cta-actions,
+.final-cta-bg-word,
+.brochure-badge {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Optional soft motion layer without affecting size */
+.final-cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.12), transparent 28%),
+    linear-gradient(
+      115deg,
+      transparent 22%,
+      rgba(255, 255, 255, 0.06) 46%,
+      transparent 70%
+    );
+
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  animation: finalCtaBgGlowOnly 7s ease-in-out infinite;
+}
+
+@keyframes finalCtaBgGlowOnly {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateX(-10px);
+  }
+
+  50% {
+    opacity: 0.82;
+    transform: translateX(10px);
+  }
+}
+
+/* =========================================================================
+   MOBILE TYPOGRAPHY & ALIGNMENT OPTIMIZATION PATCH
+   Applies cleanly below 520px viewports without breaking desktop properties
+   ========================================================================= */
+
+@media (max-width: 520px) {
+  /* 1. Hero Text Scale & Spacing Adjustments */
+  .hero-copy {
+    width: min(94vw, 440px) !important;
+    top: 56% !important; /* Move text slightly down to clear floating 3D assets */
+  }
+
+  .hero-copy h1 {
+    font-size: 38px !important; /* Prevents long titles from wrapping aggressively */
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: 12px !important;
+  }
+
+  .subtitle {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  /* 2. Rank Statement Formatting Alignment */
+  .next-section > .nuvo-rank-statement {
+    width: min(440px, calc(100vw - 24px)) !important;
+    margin: -14px auto 36px !important;
+  }
+
+  .nuvo-rank-statement h2 {
+    font-size: 28px !important; /* Keeps the premium statement punchy yet legible */
+    line-height: 1.12 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 14px !important;
+  }
+
+  .nuvo-rank-statement p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0 4px !important;
+  }
+
+  /* 3. Section Headers (Features, Modules, Testimonials) */
+  .next-section h2, 
+  .nuvo-testimonial-head h2 {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .section-content p,
+  .nuvo-testimonial-head p {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* 4. Navigation Actions Container Fix */
+  /* Keeps buttons readable without overlapping on tiny 360px width phones */
+  .nav-actions {
+    padding: 20px 14px !important;
+    gap: 12px !important;
+  }
+
+  .nav-actions .pill-btn.small {
+    width: 100% !important;
+    min-height: 46px !important;
+    font-size: 14px !important;
+    padding: 0 !important; /* Full width centering */
+  }
+}
