@@ -8201,3 +8201,17 @@ svg {
     padding: 0 !important; /* Full width centering */
   }
 }
+
+/* =========================================
+   LAPTOP ONLY FIX: Phone hand image placement
+   Makes phone look like the second screenshot
+   Paste at the VERY BOTTOM of web CSS
+========================================= */
+
+@media (min-width: 1181px) and (max-width: 1800px) {
+  .phone {
+    left: 50% !important;
+    top: 24% !important;
+    width: clamp(430px, 30vw, 510px) !important;
+  }
+}
